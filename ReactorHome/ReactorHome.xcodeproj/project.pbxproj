@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9E639F51F96A46600BDB094 /* DeviceControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E639F91F96A75300BDB094 /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceControlTableViewCell.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
@@ -43,6 +45,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9E744C9201BC5EB00322BA6 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */,
+				A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */,
+				A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A9E744CB201BC60000322BA6 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		A9E744CC201BC60800322BA6 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		A9E744CD201BC60C00322BA6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A9E74A841F955D1B00CBD15E = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +96,17 @@
 		A9E74A8F1F955D1B00CBD15E /* ReactorHome */ = {
 			isa = PBXGroup;
 			children = (
+				A9E744CD201BC60C00322BA6 /* Settings */,
+				A9E744CC201BC60800322BA6 /* Events */,
+				A9E744CB201BC60000322BA6 /* Schedule */,
+				A9E744C9201BC5EB00322BA6 /* Dashboard */,
 				A9E74A901F955D1B00CBD15E /* AppDelegate.swift */,
 				A9E74A921F955D1B00CBD15E /* ViewController.swift */,
 				A9E74A941F955D1B00CBD15E /* Main.storyboard */,
-				A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */,
 				A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */,
 				A9E74A9C1F955D1B00CBD15E /* LaunchScreen.storyboard */,
 				A9E74A9F1F955D1B00CBD15E /* Info.plist */,
 				A9E74A971F955D1B00CBD15E /* ReactorHome.xcdatamodeld */,
-				A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */,
-				A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */,
 			);
 			path = ReactorHome;
 			sourceTree = "<group>";
@@ -149,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E639F91F96A75300BDB094 /* AlertTableViewCell.swift in Sources */,
+				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
 				A9E74A931F955D1B00CBD15E /* ViewController.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
