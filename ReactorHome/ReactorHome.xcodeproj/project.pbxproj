@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98787632028DE98006BDA51 /* LoginViewController.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9E639F51F96A46600BDB094 /* DeviceControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E639F91F96A75300BDB094 /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */; };
 		A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A901F955D1B00CBD15E /* AppDelegate.swift */; };
-		A9E74A931F955D1B00CBD15E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A921F955D1B00CBD15E /* ViewController.swift */; };
 		A9E74A961F955D1B00CBD15E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A941F955D1B00CBD15E /* Main.storyboard */; };
 		A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A971F955D1B00CBD15E /* ReactorHome.xcdatamodeld */; };
 		A9E74A9B1F955D1B00CBD15E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */; };
@@ -27,13 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A98787632028DE98006BDA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F41F96A46600BDB094 /* DeviceControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceControlTableViewCell.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F81F96A75300BDB094 /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
 		A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E74A901F955D1B00CBD15E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9E74A921F955D1B00CBD15E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9E74A951F955D1B00CBD15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9E74A981F955D1B00CBD15E /* ReactorHome.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReactorHome.xcdatamodel; sourceTree = "<group>"; };
 		A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A98787652028DE9F006BDA51 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A98787632028DE98006BDA51 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A9E744C9201BC5EB00322BA6 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,8 +124,8 @@
 				A9E744CC201BC60800322BA6 /* Events */,
 				A9E744CB201BC60000322BA6 /* Schedule */,
 				A9E744C9201BC5EB00322BA6 /* Dashboard */,
+				A98787652028DE9F006BDA51 /* Login */,
 				A9E74A901F955D1B00CBD15E /* AppDelegate.swift */,
-				A9E74A921F955D1B00CBD15E /* ViewController.swift */,
 				A9E74A941F955D1B00CBD15E /* Main.storyboard */,
 				A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */,
 				A9E74A9C1F955D1B00CBD15E /* LaunchScreen.storyboard */,
@@ -224,7 +232,7 @@
 				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
-				A9E74A931F955D1B00CBD15E /* ViewController.swift in Sources */,
+				A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */,
 				D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */,
 				D63255BD20293202000E50CC /* Endpoint.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
