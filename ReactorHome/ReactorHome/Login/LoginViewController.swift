@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let client = ReactorOauthClient()
+    
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     
@@ -17,14 +19,11 @@ class LoginViewController: UIViewController {
         let username = usernameField.text
         let password = passwordField.text
         
-        let alert = UIAlertController(title: "Invalid Username or Password", message: "Please try again", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
         if (username == "" || password == "") {
-            self.present(alert, animated: true)
+            showInvalidAlert()
+        }else{
+            doLoginRequest(username: username, password: password)
         }
-        
-        doLoginRequest(username: username, password: password)
     }
     
     @IBAction func signupButton(_ sender: Any) {
@@ -42,7 +41,52 @@ class LoginViewController: UIViewController {
     }
     
     func doLoginRequest(username:String?, password:String?){
-        //print("username:\(username!) and password:\(password!)")
+        print("username:\(username!) and password:\(password!)")
+        
+        //unwrapping the username and password so we dont need to in the rest of the function
+        guard let username = username,let password = password else{
+            print("username or password nil")
+            return
+        }
+        
+        client.getOauthToken(from: .oauth, username: username, password: password) { result in
+            switch result {
+            case .success(let reactorAPIResult):
+                guard let oauthResults = reactorAPIResult else {
+                    print("There was an error")
+                    self.showInvalidAlert()
+                    return
+                }
+                
+                //print(oauthResults)
+                
+                let preferences = UserDefaults.standard
+                
+                preferences.set(oauthResults.access_token, forKey: "access_token")
+                preferences.set(oauthResults.expires_in, forKey: "expires_in")
+                preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
+                
+                //testing putting user prefs into system defaults WORKS
+//                print(preferences.string(forKey: "access_token")!)
+//                print(preferences.string(forKey: "expires_in")!)
+//                print(preferences.string(forKey: "refresh_token")!)
+                
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                
+            case .failure(let error):
+                print("the error \(error)")
+                self.showInvalidAlert()
+            }
+        }
+    }
+    
+    //show an alert for an invalid username or password
+    func showInvalidAlert(){
+        let alert = UIAlertController(title: "Invalid Username or Password", message: "Please try again", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
     }
 
     /*
