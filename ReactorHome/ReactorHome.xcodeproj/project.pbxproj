@@ -18,6 +18,13 @@
 		A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A971F955D1B00CBD15E /* ReactorHome.xcdatamodeld */; };
 		A9E74A9B1F955D1B00CBD15E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */; };
 		A9E74A9E1F955D1B00CBD15E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A9C1F955D1B00CBD15E /* LaunchScreen.storyboard */; };
+		D63255BB20293202000E50CC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B520293201000E50CC /* Result.swift */; };
+		D63255BC20293202000E50CC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B620293201000E50CC /* APIClient.swift */; };
+		D63255BD20293202000E50CC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B720293201000E50CC /* Endpoint.swift */; };
+		D63255BE20293202000E50CC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B820293201000E50CC /* APIError.swift */; };
+		D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B920293202000E50CC /* ReactorAPI.swift */; };
+		D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255BA20293202000E50CC /* ReactorOauthClient.swift */; };
+		D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		A9E74A9A1F955D1B00CBD15E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E74A9D1F955D1B00CBD15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9E74A9F1F955D1B00CBD15E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D63255B520293201000E50CC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D63255B620293201000E50CC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D63255B720293201000E50CC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D63255B820293201000E50CC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D63255B920293202000E50CC /* ReactorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPI.swift; sourceTree = "<group>"; };
+		D63255BA20293202000E50CC /* ReactorOauthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorOauthClient.swift; sourceTree = "<group>"; };
+		D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIOauthResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +120,8 @@
 		A9E74A8F1F955D1B00CBD15E /* ReactorHome */ = {
 			isa = PBXGroup;
 			children = (
+				D63255C620293221000E50CC /* Model */,
+				D63255C520293217000E50CC /* Networking */,
 				A9E744CD201BC60C00322BA6 /* Settings */,
 				A9E744CC201BC60800322BA6 /* Events */,
 				A9E744CB201BC60000322BA6 /* Schedule */,
@@ -120,6 +136,27 @@
 				A98787652028DE9F006BDA51 /* Login */,
 			);
 			path = ReactorHome;
+			sourceTree = "<group>";
+		};
+		D63255C520293217000E50CC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D63255B620293201000E50CC /* APIClient.swift */,
+				D63255B820293201000E50CC /* APIError.swift */,
+				D63255B720293201000E50CC /* Endpoint.swift */,
+				D63255B920293202000E50CC /* ReactorAPI.swift */,
+				D63255BA20293202000E50CC /* ReactorOauthClient.swift */,
+				D63255B520293201000E50CC /* Result.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D63255C620293221000E50CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +232,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E639F91F96A75300BDB094 /* AlertTableViewCell.swift in Sources */,
+				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
 				A9E74A931F955D1B00CBD15E /* ViewController.swift in Sources */,
 				A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
+				D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */,
 				A9E639F51F96A46600BDB094 /* DeviceControlTableViewCell.swift in Sources */,
+				D63255BB20293202000E50CC /* Result.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
+				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
+				D63255BE20293202000E50CC /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
