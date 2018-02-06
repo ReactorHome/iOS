@@ -24,7 +24,18 @@
 		D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255B920293202000E50CC /* ReactorAPI.swift */; };
 		D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255BA20293202000E50CC /* ReactorOauthClient.swift */; };
 		D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */; };
+		D6D22A0F202A324A0040D0C1 /* OauthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D22A0E202A324A0040D0C1 /* OauthTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6D22A08202A321B0040D0C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9E74A851F955D1B00CBD15E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9E74A8C1F955D1B00CBD15E;
+			remoteInfo = ReactorHome;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A98787632028DE98006BDA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -46,10 +57,20 @@
 		D63255B920293202000E50CC /* ReactorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPI.swift; sourceTree = "<group>"; };
 		D63255BA20293202000E50CC /* ReactorOauthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorOauthClient.swift; sourceTree = "<group>"; };
 		D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIOauthResult.swift; sourceTree = "<group>"; };
+		D6D22A03202A321B0040D0C1 /* ReactorHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactorHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D22A07202A321B0040D0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D22A0E202A324A0040D0C1 /* OauthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A9E74A8A1F955D1B00CBD15E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D22A00202A321B0040D0C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -103,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E74A8F1F955D1B00CBD15E /* ReactorHome */,
+				D6D22A04202A321B0040D0C1 /* ReactorHomeTests */,
 				A9E74A8E1F955D1B00CBD15E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */,
+				D6D22A03202A321B0040D0C1 /* ReactorHomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +179,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D6D22A04202A321B0040D0C1 /* ReactorHomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6D22A0D202A32280040D0C1 /* Networking */,
+				D6D22A07202A321B0040D0C1 /* Info.plist */,
+			);
+			path = ReactorHomeTests;
+			sourceTree = "<group>";
+		};
+		D6D22A0D202A32280040D0C1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D6D22A0E202A324A0040D0C1 /* OauthTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,19 +216,42 @@
 			productReference = A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D6D22A02202A321B0040D0C1 /* ReactorHomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D22A0A202A321B0040D0C1 /* Build configuration list for PBXNativeTarget "ReactorHomeTests" */;
+			buildPhases = (
+				D6D229FF202A321B0040D0C1 /* Sources */,
+				D6D22A00202A321B0040D0C1 /* Frameworks */,
+				D6D22A01202A321B0040D0C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6D22A09202A321B0040D0C1 /* PBXTargetDependency */,
+			);
+			name = ReactorHomeTests;
+			productName = ReactorHomeTests;
+			productReference = D6D22A03202A321B0040D0C1 /* ReactorHomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A9E74A851F955D1B00CBD15E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Mock;
 				TargetAttributes = {
 					A9E74A8C1F955D1B00CBD15E = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+					};
+					D6D22A02202A321B0040D0C1 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9E74A8C1F955D1B00CBD15E;
 					};
 				};
 			};
@@ -206,6 +269,7 @@
 			projectRoot = "";
 			targets = (
 				A9E74A8C1F955D1B00CBD15E /* ReactorHome */,
+				D6D22A02202A321B0040D0C1 /* ReactorHomeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +282,13 @@
 				A9E74A9E1F955D1B00CBD15E /* LaunchScreen.storyboard in Resources */,
 				A9E74A9B1F955D1B00CBD15E /* Assets.xcassets in Resources */,
 				A9E74A961F955D1B00CBD15E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D22A01202A321B0040D0C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +316,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6D229FF202A321B0040D0C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D22A0F202A324A0040D0C1 /* OauthTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6D22A09202A321B0040D0C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9E74A8C1F955D1B00CBD15E /* ReactorHome */;
+			targetProxy = D6D22A08202A321B0040D0C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A9E74A941F955D1B00CBD15E /* Main.storyboard */ = {
@@ -379,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F48D7BT8E;
+				DEVELOPMENT_TEAM = 6CGU7ALY9N;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mockdesign.ReactorHome;
@@ -394,13 +481,47 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F48D7BT8E;
+				DEVELOPMENT_TEAM = 6CGU7ALY9N;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mockdesign.ReactorHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D6D22A0B202A321B0040D0C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CGU7ALY9N;
+				INFOPLIST_FILE = ReactorHomeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mockdesign.ReactorHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactorHome.app/ReactorHome";
+			};
+			name = Debug;
+		};
+		D6D22A0C202A321B0040D0C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6CGU7ALY9N;
+				INFOPLIST_FILE = ReactorHomeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mockdesign.ReactorHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactorHome.app/ReactorHome";
 			};
 			name = Release;
 		};
@@ -421,6 +542,15 @@
 			buildConfigurations = (
 				A9E74AA31F955D1B00CBD15E /* Debug */,
 				A9E74AA41F955D1B00CBD15E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D22A0A202A321B0040D0C1 /* Build configuration list for PBXNativeTarget "ReactorHomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D22A0B202A321B0040D0C1 /* Debug */,
+				D6D22A0C202A321B0040D0C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
