@@ -17,6 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let client = ReactorOauthClient()
+        
+        //EXAMPLE VARS
+        
+        let username = "test2"
+        let password = "test"
+        
+        
+        client.getOauthToken(from: .oauth, username: username, password: password) { result in
+            switch result {
+            case .success(let reactorAPIResult):
+                guard let oauthResults = reactorAPIResult else {
+                    print("There was an error")
+                    return
+                }
+                print(oauthResults)
+                print(oauthResults.access_token)
+                
+            case .failure(let error):
+                print("the error \(error)")
+            }
+        }
+        
+        
+        
+        
         return true
     }
 
