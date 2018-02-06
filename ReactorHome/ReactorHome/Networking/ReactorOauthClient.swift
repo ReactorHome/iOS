@@ -32,7 +32,6 @@ class ReactorOauthClient: APIClient {
         request.httpBody = postString.data(using: .utf8)
         
         
-        
         fetch(with: request , decode: { json -> ReactorAPIOauthResult? in
             guard let reactorAPIOauthResult = json as? ReactorAPIOauthResult else { return  nil }
             return reactorAPIOauthResult
@@ -42,15 +41,3 @@ class ReactorOauthClient: APIClient {
     
     
 }
-
-
-
-
-//func getFeed(from movieFeedType: MovieFeed, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
-//
-//    fetch(with: movieFeedType.request , decode: { json -> MovieFeedResult? in
-//        guard let movieFeedResult = json as? MovieFeedResult else { return  nil }
-//        return movieFeedResult
-//    }, completion: completion)
-//}
-
