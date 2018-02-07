@@ -58,18 +58,18 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                //print(oauthResults)
-                
+                //setting access_token
                 let preferences = UserDefaults.standard
-                
                 preferences.set(oauthResults.access_token, forKey: "access_token")
-                preferences.set(oauthResults.expires_in, forKey: "expires_in")
-                preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
                 
-                //testing putting user prefs into system defaults WORKS
-//                print(preferences.string(forKey: "access_token")!)
-//                print(preferences.string(forKey: "expires_in")!)
-//                print(preferences.string(forKey: "refresh_token")!)
+                //setting expires_at
+                let currentDateTime = Date()
+                let expires_in = TimeInterval(oauthResults.expires_in!)
+                let expires_at = currentDateTime.addingTimeInterval(expires_in)
+                preferences.set(expires_at, forKey: "expires_at")
+                
+                //setting refresh_token
+                preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
                 
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
                 
