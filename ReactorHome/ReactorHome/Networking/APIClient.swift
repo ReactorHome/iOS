@@ -17,6 +17,10 @@ protocol APIClient {
 
 extension APIClient {
     typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
+    
+    typealias TaskCompletionHandler = (APIResponse?) -> Void
+    
+    //decoding for JSON
     private func decodingTask<T: Decodable>(with request: URLRequest, decodingType: T.Type, completionHandler completion: @escaping JSONTaskCompletionHandler) -> URLSessionDataTask {
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -36,14 +40,33 @@ extension APIClient {
                 } else {
                     completion(nil, .invalidData)
                 }
-            } else {
+            }else{
                 completion(nil, .responseUnsuccessful)
             }
         }
         return task
     }
     
+    //decoding without JSON
+    private func decodingTask(with request: URLRequest, completionHandler completion: @escaping TaskCompletionHandler) -> URLSessionDataTask {
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(APIError.requestFailed)
+                return
+            }
+            if httpResponse.statusCode == 200 {
+                completion(APISuccess.registeredUser)
+            }else if httpResponse.statusCode == 409 { //this is if the username is taken
+                completion(APIError.usernameUnavailable)
+            }else{
+                completion(APIError.responseUnsuccessful)
+            }
+        }
+        return task
+    }
     
+    //Fetch for JSON
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         let task = decodingTask(with: request, decodingType: T.self) { (json , error) in
             //MARK: change to main queue
@@ -66,6 +89,20 @@ extension APIClient {
         task.resume()
     }
     
-    
+    //Fetch without JSON
+    func fetch(with request: URLRequest, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        let task = decodingTask(with: request) { (response) in
+            //MARK: change to main queue
+            DispatchQueue.main.async {
+                if let response = response as? APISuccess{
+                    completion(Result.success(response))
+                }
+                if let response = response as? APIError{
+                    completion(Result.failure(response))
+                }
+            }
+        }
+        task.resume()
+    }
     
 }

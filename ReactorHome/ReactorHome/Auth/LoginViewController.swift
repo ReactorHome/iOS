@@ -26,10 +26,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func signupButton(_ sender: Any) {
-        return
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,7 +37,6 @@ class LoginViewController: UIViewController {
     }
     
     func doLoginRequest(username:String?, password:String?){
-        print("username:\(username!) and password:\(password!)")
         
         //unwrapping the username and password so we dont need to in the rest of the function
         guard let username = username,let password = password else{

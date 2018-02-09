@@ -11,6 +11,7 @@ import Foundation
 //These will change the URl string that is created in Endpoint
 enum ReactorAPI {
     case oauth
+    case register
 }
 
 //This extention to API will add functionality and conform to Enpoint
@@ -27,6 +28,7 @@ extension ReactorAPI: Endpoint {
     var path: String { //Computed property  for the path, this is why these are cool as hell
         switch self {
         case .oauth: return "/user/oauth/token"
+        case .register: return "/user/api/users/register"
 
         }
     }
