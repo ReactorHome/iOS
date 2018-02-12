@@ -14,35 +14,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch
         
-        let client = ReactorOauthClient()
+        let validOauth = oauthValidationCheck()
         
-        //EXAMPLE VARS
-        
-        let username = "test2"
-        let password = "test"
-        
-        
-        client.getOauthToken(from: .oauth, username: username, password: password) { result in
-            switch result {
-            case .success(let reactorAPIResult):
-                guard let oauthResults = reactorAPIResult else {
-                    print("There was an error")
-                    return
-                }
-                print(oauthResults)
-                print(oauthResults.access_token)
-                
-            case .failure(let error):
-                print("the error \(error)")
+        if (validOauth){
+            
+            print("finished login check")
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let tabBarController: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.window?.makeKeyAndVisible()
+            self.window?.rootViewController = tabBarController
+            
+        }else{
+            print("user is not logged in. Send to the login screen for auth")
+            let preferences = UserDefaults.standard
+            
+            guard let expires_at = preferences.object(forKey: "expires_at") as? Date else{
+                print("No Expiration set in user defaults. Something went wrong in refreshAuth / oauthVaildationCheck()")
+                return true
             }
+            
+            print(expires_at)
+            //print(UserDefaults.standard.object(forKey: "expires_at")!)
         }
-        
-        
-        
         
         return true
     }

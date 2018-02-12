@@ -38,6 +38,26 @@ class ReactorOauthClient: APIClient {
         }, completion: completion)
     }
     
+    func getOauthRefresh(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIOauthResult?, APIError>) -> Void) {
+        
+        let preferences = UserDefaults.standard
+        guard let refresh_token = preferences.string(forKey:"refresh_token") else{
+            print("refresh_token is nil")
+            return
+        }
+        
+        var request = ReactorAPIType.request
+        
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let postString = "refresh_token=\(refresh_token)&grant_type=refresh_token&client_id=api-user"
+        request.httpBody = postString.data(using: .utf8)
+        
+        fetch(with: request , decode: { json -> ReactorAPIOauthResult? in
+            guard let reactorAPIOauthResult = json as? ReactorAPIOauthResult else { return  nil }
+            return reactorAPIOauthResult
+        }, completion: completion)
+    }
     
     
 }
