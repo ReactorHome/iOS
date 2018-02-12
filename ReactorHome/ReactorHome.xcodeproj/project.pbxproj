@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9530B192032004B000750E6 /* RefreshAuth.swift */; };
 		A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98787632028DE98006BDA51 /* LoginViewController.swift */; };
 		A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */; };
 		A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC8202E308900A09703 /* APIResponse.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9530B192032004B000750E6 /* RefreshAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAuth.swift; sourceTree = "<group>"; };
 		A98787632028DE98006BDA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorRegisterUserClient.swift; sourceTree = "<group>"; };
 		A9BEBAC8202E308900A09703 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				A98787632028DE98006BDA51 /* LoginViewController.swift */,
 				A9BEBACC202E425C00A09703 /* RegisterViewController.swift */,
+				A9530B192032004B000750E6 /* RefreshAuth.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				A9E639F51F96A46600BDB094 /* DeviceControlTableViewCell.swift in Sources */,
 				A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */,
 				D63255BB20293202000E50CC /* Result.swift in Sources */,
+				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
 				D63255BE20293202000E50CC /* APIError.swift in Sources */,

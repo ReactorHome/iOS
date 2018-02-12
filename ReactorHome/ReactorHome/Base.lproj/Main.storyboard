@@ -413,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="-1660" y="-482.60869565217394"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabBarController-->
         <scene sceneID="HWl-au-g7m">
             <objects>
-                <tabBarController id="KZc-gh-LE6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KZc-gh-LE6" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VDZ-gc-tSg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
