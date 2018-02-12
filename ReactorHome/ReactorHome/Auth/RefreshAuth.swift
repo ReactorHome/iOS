@@ -17,7 +17,6 @@ func oauthValidationCheck() -> Bool {
     
     //checking to make sure we have an expires_at set in user prefs
     guard let expires_at = preferences.object(forKey: "expires_at") as? Date else{
-        print("No Expiration set in user defaults. Something went wrong in refreshAuth / oauthVaildationCheck()")
         successFlag = false
         return successFlag
     }
