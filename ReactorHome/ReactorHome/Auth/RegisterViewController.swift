@@ -51,8 +51,8 @@ class RegisterViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .blue
     }
 
     override func didReceiveMemoryWarning() {
