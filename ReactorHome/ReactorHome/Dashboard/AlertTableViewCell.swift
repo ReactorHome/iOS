@@ -8,7 +8,19 @@
 
 import UIKit
 
-class AlertTableViewCell: UITableViewCell {
+class AlertTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alertcell", for: indexPath)
+        
+        cell.textLabel?.text = "Testing"
+        
+        return cell
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

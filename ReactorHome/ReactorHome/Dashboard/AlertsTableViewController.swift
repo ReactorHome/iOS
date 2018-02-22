@@ -1,14 +1,14 @@
 //
-//  DashboardTableViewController.swift
+//  AlertsTableViewController.swift
 //  ReactorHome
 //
-//  Created by Will Mock on 10/17/17.
-//  Copyright © 2017 Mock. All rights reserved.
+//  Created by Will Mock on 2/19/18.
+//  Copyright © 2018 Mock. All rights reserved.
 //
 
 import UIKit
 
-class DashboardTableViewController: UITableViewController, DashboardCellSegueProtocol{
+class AlertsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +18,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 140
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,59 +29,23 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 0
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardcell") as!  DashboardTableViewCell
-        
-        //setting the headers and button names
-        let sectionHeaders = ["Alerts","Devices","Groups"]
-        cell.sectionTitleText.text = sectionHeaders[indexPath.row]
-        let buttonNames = ["All Alerts", "Manage Devices", "Manage Groups"]
-        cell.buttonOutlet.setTitle(buttonNames[indexPath.row], for: .normal)
-        
-        //setting the delegate
-        cell.delegate = self
-        
-        switch indexPath.row {
-        case 0:
-            cell.cellType = .alertsCell
-        case 1:
-            cell.cellType = .devicesCell
-        case 2:
-            cell.cellType = .groupsCell
-        default:
-            cell.cellType = .errorCell
-        }
-        
-        //Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300.0
-    }
-    
-    func callSegueFromCell(cellType: DashboardCellType){
-        
-        switch cellType{
-        case .alertsCell:
-            self.performSegue(withIdentifier: "showAllAlerts", sender: self)
-        case .devicesCell:
-            self.performSegue(withIdentifier: "showManageDevices", sender: self)
-        case .groupsCell:
-            self.performSegue(withIdentifier: "showManageGroups", sender: self)
-        default:
-            print("error in DashboardTableViewController")
-        }
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
