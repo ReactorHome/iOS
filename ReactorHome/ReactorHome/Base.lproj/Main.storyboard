@@ -585,7 +585,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QMx-re-HyM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="FYk-gx-Dnf" kind="show" id="fbH-Jr-OfI"/>
+                                <segue destination="FYk-gx-Dnf" kind="show" identifier="showAddDevice" id="fbH-Jr-OfI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
