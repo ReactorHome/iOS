@@ -63,13 +63,15 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             cell.cellType = .errorCell
         }
         
-        //Configure the cell...
-
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300.0
+        if tableView.tag == 1 {
+            return 300.0
+        }else{
+            return 50.0
+        }
     }
     
     func callSegueFromCell(cellType: DashboardCellType){

@@ -9,8 +9,14 @@
 import Foundation
 
 enum DashboardCellType {
+    //alert cells
     case alertsCell
+    
+    //devices cell
     case devicesCell
+    
+    //groups cell
     case groupsCell
+    
     case errorCell
 }
