@@ -14,6 +14,9 @@
 		A96A7358204093620098CC6C /* AlertBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */; };
 		A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */; };
 		A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */; };
+		A96A7363204098660098CC6C /* AlertCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7362204098660098CC6C /* AlertCellType.swift */; };
+		A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7364204098810098CC6C /* DeviceCellType.swift */; };
+		A96A7367204098930098CC6C /* GroupCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7366204098930098CC6C /* GroupCellType.swift */; };
 		A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98787632028DE98006BDA51 /* LoginViewController.swift */; };
 		A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */; };
 		A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC8202E308900A09703 /* APIResponse.swift */; };
@@ -54,6 +57,9 @@
 		A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBasicTableViewCell.swift; sourceTree = "<group>"; };
+		A96A7362204098660098CC6C /* AlertCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCellType.swift; sourceTree = "<group>"; };
+		A96A7364204098810098CC6C /* DeviceCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellType.swift; sourceTree = "<group>"; };
+		A96A7366204098930098CC6C /* GroupCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellType.swift; sourceTree = "<group>"; };
 		A98787632028DE98006BDA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorRegisterUserClient.swift; sourceTree = "<group>"; };
 		A9BEBAC8202E308900A09703 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		A96A73592040936A0098CC6C /* AlertCells */ = {
 			isa = PBXGroup;
 			children = (
+				A96A7362204098660098CC6C /* AlertCellType.swift */,
 				A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */,
 			);
 			name = AlertCells;
@@ -110,6 +117,7 @@
 		A96A735C204093A90098CC6C /* DeviceCells */ = {
 			isa = PBXGroup;
 			children = (
+				A96A7364204098810098CC6C /* DeviceCellType.swift */,
 				A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */,
 			);
 			path = DeviceCells;
@@ -118,6 +126,7 @@
 		A96A735F204093DE0098CC6C /* GroupCells */ = {
 			isa = PBXGroup;
 			children = (
+				A96A7366204098930098CC6C /* GroupCellType.swift */,
 				A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */,
 			);
 			path = GroupCells;
@@ -359,6 +368,8 @@
 				A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */,
 				A9BEBACB202E32CA00A09703 /* APISuccess.swift in Sources */,
 				A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */,
+				A96A7363204098660098CC6C /* AlertCellType.swift in Sources */,
+				A96A7367204098930098CC6C /* GroupCellType.swift in Sources */,
 				A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */,
 				A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */,
 				D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */,
@@ -369,6 +380,7 @@
 				A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */,
 				A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */,
 				D63255BB20293202000E50CC /* Result.swift in Sources */,
+				A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */,
 				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,

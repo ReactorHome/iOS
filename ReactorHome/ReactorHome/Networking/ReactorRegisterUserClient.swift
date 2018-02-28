@@ -26,7 +26,6 @@ class ReactorRegisterUserClient: APIClient {
         
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        //TODO: make a json serilizable struct for this... will prevent us from having to make json formatted strings all the time...
         let postString = "{\"username\":\"\(username)\",\"email\":\"\(email)\",\"password\":\"\(password)\",\"firstName\":\"\(firstName)\",\"lastName\":\"\(lastName)\"}"
         request.httpBody = postString.data(using: .utf8)
         
