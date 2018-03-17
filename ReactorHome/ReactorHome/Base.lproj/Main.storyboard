@@ -205,7 +205,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mu5-XE-bia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2572" y="555"/>
+            <point key="canvasLocation" x="-3695" y="555"/>
         </scene>
         <!--Login-->
         <scene sceneID="395-JF-5Lg">
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zg-lE-YWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1660" y="554.57271364317842"/>
+            <point key="canvasLocation" x="-2783" y="555"/>
         </scene>
         <!--Register-->
         <scene sceneID="BX4-l9-WUa">
@@ -465,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy7-Jf-CTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-910" y="-481"/>
+            <point key="canvasLocation" x="-2034" y="-482"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="HWl-au-g7m">
@@ -486,7 +486,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ij-yE-cJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-657" y="556"/>
+            <point key="canvasLocation" x="-281" y="555"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="IIi-zK-GSB">
@@ -761,19 +761,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h38-oc-QEE">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h38-oc-QEE">
                                 <rect key="frame" x="177" y="110" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-VC-lzC">
-                                <rect key="frame" x="166" y="138" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching for Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-VC-lzC">
+                                <rect key="frame" x="103" y="146" width="168" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f2W-VC-lzC" firstAttribute="centerX" secondItem="MmZ-n9-nUK" secondAttribute="centerX" id="UvU-TC-qcU"/>
+                            <constraint firstItem="h38-oc-QEE" firstAttribute="top" secondItem="MmZ-n9-nUK" secondAttribute="top" constant="46" id="Yw2-Te-hWf"/>
+                            <constraint firstItem="h38-oc-QEE" firstAttribute="centerX" secondItem="MmZ-n9-nUK" secondAttribute="centerX" id="bNx-72-ICg"/>
+                            <constraint firstItem="f2W-VC-lzC" firstAttribute="top" secondItem="h38-oc-QEE" secondAttribute="bottom" constant="16" id="j9P-Qg-JEU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MmZ-n9-nUK"/>
                     </view>
                 </viewController>

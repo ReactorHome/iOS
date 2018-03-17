@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931125E2047493900E6A340 /* CheckHubRegistration.swift */; };
 		A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9530B192032004B000750E6 /* RefreshAuth.swift */; };
 		A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */; };
 		A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C28203C97570087C6E6 /* DashboardCellType.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A931125E2047493900E6A340 /* CheckHubRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHubRegistration.swift; sourceTree = "<group>"; };
 		A9530B192032004B000750E6 /* RefreshAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAuth.swift; sourceTree = "<group>"; };
 		A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		A9575C28203C97570087C6E6 /* DashboardCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellType.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				A98787632028DE98006BDA51 /* LoginViewController.swift */,
 				A9BEBACC202E425C00A09703 /* RegisterViewController.swift */,
 				A9530B192032004B000750E6 /* RefreshAuth.swift */,
+				A931125E2047493900E6A340 /* CheckHubRegistration.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */,
 				A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */,
 				D63255BB20293202000E50CC /* Result.swift in Sources */,
+				A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */,
 				A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */,
 				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
