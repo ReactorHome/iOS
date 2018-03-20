@@ -34,8 +34,6 @@ class ReactorMainRequestClient: APIClient {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         print("header fields")
         print(request.allHTTPHeaderFields)
-        print("request")
-        print(request)
         
         fetch(with: request, decode: {json -> ReactorAPIGroupResult? in
             guard let reactorAPIGroupResult = json as? ReactorAPIGroupResult else { return  nil }

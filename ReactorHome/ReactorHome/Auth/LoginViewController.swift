@@ -12,6 +12,9 @@ class LoginViewController: UIViewController {
     
     let client = ReactorOauthClient()
     let client2 = ReactorMainRequestClient()
+    let preferences = UserDefaults.standard
+    
+    var groupData: ReactorAPIGroupResult?
     
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -30,6 +33,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        //make request for groups here
+        self.groupData = self.getGroups()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,13 +78,41 @@ class LoginViewController: UIViewController {
                 //setting refresh_token
                 preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
                 
-                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                if(self.groupData != nil){
+                    //need to send the data along with the segue here.
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                }else{
+                    self.performSegue(withIdentifier: "newUserSegue", sender: self)
+                }
                 
             case .failure(let error):
                 print("the error \(error)")
                 self.showInvalidAlert()
             }
         }
+    }
+    
+    func getGroups() -> ReactorAPIGroupResult?{
+        var returnValue: ReactorAPIGroupResult? = nil
+        client2.getGroup(from: .getUsersGroups){ result in
+            switch result{
+            case .success(let reactorAPIResult):
+                guard let getGroupResults = reactorAPIResult else {
+                    print("Unable to get Group")
+                    return
+                }
+                
+                if let group = getGroupResults.groups?[0]{
+                    self.preferences.set(group.id, forKey: "group_Id")
+                }
+                
+                returnValue = getGroupResults
+                
+            case .failure(let error):
+                print("the error \(error)")
+            }
+        }
+        return returnValue
     }
     
     //show an alert for an invalid username or password
@@ -89,6 +122,12 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(alert, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue", let destinationVC = segue.destination as? DashboardTableViewController {
+            destinationVC.groupObject = groupData
+        }
     }
 
     /*

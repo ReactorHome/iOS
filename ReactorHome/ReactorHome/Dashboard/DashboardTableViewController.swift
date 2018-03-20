@@ -10,22 +10,30 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController, DashboardCellSegueProtocol{
 
+    //getting group object from previous Segue
+    var groupObject: ReactorAPIGroupResult?
     
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if groupObject == nil{
+            print("getting groups")
+            groupObject = getGroups()
+        }
+        print("viewDidLoad")
+        print(groupObject)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if preferences.string(forKey: "group_Id") == nil {
-            setGroupNumber()
+        if groupObject == nil{
+            showErrorAlert()
         }
-        print("Group ID: ")
-        print(preferences.string(forKey: "group_Id"))
+        print("viewWillAppear")
+        print(groupObject)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,26 +84,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         }
     }
     
-    //Making request and setting the group number to the first group in the list... maybe allow them to adjust in settings?
-    func setGroupNumber() {
-        self.mainRequestClient.getGroup(from: .getUsersGroups){ result in
-            switch result{
-            case .success(let reactorAPIResult):
-                guard let getGroupResults = reactorAPIResult else {
-                    print("Unable to get Group")
-                    return
-                }
-                
-                if let group = getGroupResults.groups?[0]{
-                    self.preferences.set(group.id, forKey: "group_Id")
-                }
-                
-            case .failure(let error):
-                print("the error \(error)")
-            }
-        }
-    }
-    
     func callSegueFromCell(cellType: DashboardCellType){
         
         switch cellType{
@@ -110,49 +98,35 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func getGroups() -> ReactorAPIGroupResult?{
+        var returnValue: ReactorAPIGroupResult? = nil
+        mainRequestClient.getGroup(from: .getUsersGroups){ result in
+            switch result{
+            case .success(let reactorAPIResult):
+                guard let getGroupResults = reactorAPIResult else {
+                    print("Unable to get Group")
+                    return
+                }
+                
+                if let group = getGroupResults.groups?[0]{
+                    self.preferences.set(group.id, forKey: "group_Id")
+                }
+                
+                returnValue = getGroupResults
+                
+            case .failure(let error):
+                print("the error \(error)")
+            }
+        }
+        return returnValue
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Something went wrong!", message: "There was an error loading your data. Please try relaunching the app", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

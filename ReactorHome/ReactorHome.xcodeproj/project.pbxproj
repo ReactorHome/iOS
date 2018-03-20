@@ -17,6 +17,8 @@
 		A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */; };
 		A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C28203C97570087C6E6 /* DashboardCellType.swift */; };
 		A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */; };
+		A95D1FB02061B52900462DDF /* QRHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D1FAF2061B52900462DDF /* QRHubViewController.swift */; };
+		A95D1FB42061B58700462DDF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95D1FB32061B58700462DDF /* AVFoundation.framework */; };
 		A96A7358204093620098CC6C /* AlertBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */; };
 		A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */; };
 		A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */; };
@@ -66,6 +68,8 @@
 		A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		A9575C28203C97570087C6E6 /* DashboardCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellType.swift; sourceTree = "<group>"; };
 		A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellSegueProtocol.swift; sourceTree = "<group>"; };
+		A95D1FAF2061B52900462DDF /* QRHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRHubViewController.swift; sourceTree = "<group>"; };
+		A95D1FB32061B58700462DDF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBasicTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95D1FB42061B58700462DDF /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +121,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A95D1FB12061B52E00462DDF /* HubRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				A95D1FAF2061B52900462DDF /* QRHubViewController.swift */,
+			);
+			path = HubRegistration;
+			sourceTree = "<group>";
+		};
+		A95D1FB22061B58600462DDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A95D1FB32061B58700462DDF /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A96A73592040936A0098CC6C /* AlertCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +172,7 @@
 				A9BEBACC202E425C00A09703 /* RegisterViewController.swift */,
 				A9530B192032004B000750E6 /* RefreshAuth.swift */,
 				A931125E2047493900E6A340 /* CheckHubRegistration.swift */,
+				A95D1FB12061B52E00462DDF /* HubRegistration */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -197,6 +219,7 @@
 				A9E74A8F1F955D1B00CBD15E /* ReactorHome */,
 				D626FED5203DF0F200B81F3D /* ReactorHomeTests */,
 				A9E74A8E1F955D1B00CBD15E /* Products */,
+				A95D1FB22061B58600462DDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +404,7 @@
 				A901DDC9205DB7D30070E831 /* ReactorAPIGroupObject.swift in Sources */,
 				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
 				A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */,
+				A95D1FB02061B52900462DDF /* QRHubViewController.swift in Sources */,
 				A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
@@ -566,7 +590,7 @@
 				DEVELOPMENT_TEAM = 4F48D7BT8E;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.myReactorHome.ReactorHome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactorHome.ReactorHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -581,7 +605,7 @@
 				DEVELOPMENT_TEAM = 4F48D7BT8E;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.myReactorHome.ReactorHome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactorHome.ReactorHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

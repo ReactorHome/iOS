@@ -122,6 +122,7 @@
                 <navigationController id="RyI-Y1-LlB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Events" id="1A4-lR-MCc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RTv-Sy-qfE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -145,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Xk-qL-Kk7">
-                                <rect key="frame" x="0.0" y="214" width="375" height="404"/>
+                                <rect key="frame" x="0.0" y="258" width="375" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tkF-se-duL">
@@ -181,7 +182,12 @@
                 <navigationController id="3GF-rc-rAT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="3C5-bb-Wa7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ug8-j8-J7W">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="n4y-nh-htu" kind="relationship" relationship="rootViewController" id="Fx9-4b-roB"/>
@@ -189,7 +195,103 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujV-vX-NvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="1704"/>
+            <point key="canvasLocation" x="844" y="1702"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="889-Rc-Kzp">
+            <objects>
+                <navigationController id="GAW-qL-epc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ol4-Gb-BPU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="js1-sS-bzM" kind="relationship" relationship="rootViewController" id="0jF-JY-liX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CS1-c8-hlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49" y="2955"/>
+        </scene>
+        <!--Register Hub-->
+        <scene sceneID="8m7-xD-aBu">
+            <objects>
+                <viewController title="Register Hub" id="js1-sS-bzM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aw1-cn-nJN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJn-Cn-xbO">
+                                <rect key="frame" x="121" y="350.5" width="132" height="30"/>
+                                <state key="normal" title="Scan Hub QR Code">
+                                    <color key="titleColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="AVX-pU-C6f" kind="show" id="cC4-ds-Ry0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdt-5n-lOB">
+                                <rect key="frame" x="89" y="460.5" width="196" height="30"/>
+                                <state key="normal" title="I'm not the owner of the Hub">
+                                    <color key="titleColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0hV-7E-3Gg" kind="show" id="gYf-Yf-KC5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rdt-5n-lOB" firstAttribute="top" secondItem="RJn-Cn-xbO" secondAttribute="bottom" constant="80" id="4Ka-Zh-c1J"/>
+                            <constraint firstItem="RJn-Cn-xbO" firstAttribute="centerY" secondItem="Tcl-2N-pgH" secondAttribute="centerY" id="9h0-mi-zIp"/>
+                            <constraint firstItem="RJn-Cn-xbO" firstAttribute="centerX" secondItem="Tcl-2N-pgH" secondAttribute="centerX" id="Dgf-ZG-e1d"/>
+                            <constraint firstItem="rdt-5n-lOB" firstAttribute="centerX" secondItem="Tcl-2N-pgH" secondAttribute="centerX" id="Zsv-Me-Yb2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tcl-2N-pgH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Register Hub" id="zJv-3o-PLN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRc-Mu-nyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="2955"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="Mfd-Bh-y7W">
+            <objects>
+                <viewController title="Info" id="0hV-7E-3Gg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EbB-R5-p9r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b5a-Kq-7Ia"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fo-fA-WbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="3289"/>
+        </scene>
+        <!--Scan QR-->
+        <scene sceneID="f0F-0Q-cN9">
+            <objects>
+                <viewController title="Scan QR" id="AVX-pU-C6f" customClass="QRHubViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9r6-yL-NAg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YnF-fp-hIa"/>
+                    </view>
+                    <connections>
+                        <outlet property="topBar" destination="9r6-yL-NAg" id="4hf-fU-MKV"/>
+                        <segue destination="KZc-gh-LE6" kind="show" identifier="QRSegue" id="xwY-Cx-gdU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZy-eq-ADM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="2553"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nCN-1M-WXU">
@@ -296,6 +398,7 @@
                         <outlet property="passwordField" destination="bBo-nh-NMP" id="tLL-1f-DSC"/>
                         <outlet property="usernameField" destination="QMj-sv-cNO" id="EFd-th-WJd"/>
                         <segue destination="KZc-gh-LE6" kind="show" identifier="loginSegue" id="kQQ-Wo-qWm"/>
+                        <segue destination="GAW-qL-epc" kind="show" identifier="newUserSegue" id="UTN-Uz-7LX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zg-lE-YWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -697,7 +800,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QVq-si-zLM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -736,6 +839,7 @@
                 <navigationController id="oej-wF-yW0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Dashboard" id="aod-8D-ob7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JIk-9T-Zh2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.22745098039215686" green="0.59215686274509804" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -762,10 +866,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h38-oc-QEE">
-                                <rect key="frame" x="177" y="110" width="20" height="20"/>
+                                <rect key="frame" x="177" y="154" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching for Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2W-VC-lzC">
-                                <rect key="frame" x="103" y="146" width="168" height="21"/>
+                                <rect key="frame" x="103" y="190" width="168" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -789,5 +893,8 @@
     <resources>
         <image name="ReactorIcon" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xwY-Cx-gdU"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
