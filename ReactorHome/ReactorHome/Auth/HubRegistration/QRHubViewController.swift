@@ -13,6 +13,7 @@ class QRHubViewController: UIViewController {
     
     @IBOutlet var topBar: UIView!
     
+    let client = ReactorMainRequestClient()
     var captureSession = AVCaptureSession()
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -131,8 +132,10 @@ class QRHubViewController: UIViewController {
         
         let action2 = UIAlertAction(title: "Register", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             let textField = alertPrompt.textFields![0]
-            print("Name: \(textField.text) Addr: \(decodedMessage)")
-            self.callSegue()
+            if let name = textField.text{
+                self.addHubRequest(name: name, decodedMessage: decodedMessage)
+            }
+            //do self.callSegue() inside of the completion for add hub request
         })
         
         alertPrompt.addAction(action)
@@ -142,6 +145,12 @@ class QRHubViewController: UIViewController {
     
     func callSegue() {
         performSegue(withIdentifier: "QRSegue", sender: self)
+    }
+    
+    //TODO: Actually make this add a hub
+    func addHubRequest(name: String, decodedMessage: String){
+        //client.
+        print("Name: \(name) Addr: \(decodedMessage)")
     }
     
     func invalidQRAlert() {

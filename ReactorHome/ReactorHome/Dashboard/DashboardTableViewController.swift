@@ -12,6 +12,10 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
 
     //getting group object from previous Segue
     var groupObject: ReactorAPIGroupResult?
+    //setting up for other requests
+    var eventsObject: ReactorAPIEventsResult?
+    var devicesObject: ReactorAPIDevicesResult?
+    var deviceGroupsObject: ReactorAPIDeviceGroupsResult?
     
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
@@ -19,19 +23,11 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     override func viewDidLoad() {
         super.viewDidLoad()
         if groupObject == nil{
-            print("getting groups")
             groupObject = getGroups()
         }
-        print("viewDidLoad")
-        print(groupObject)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if groupObject == nil{
-            showErrorAlert()
-        }
-        print("viewWillAppear")
-        print(groupObject)
+        eventsObject = getEvents()
+        devicesObject = getDevices()
+        deviceGroupsObject = getDeviceGroups()
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,12 +38,10 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 3
     }
 
@@ -113,12 +107,27 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 }
                 
                 returnValue = getGroupResults
-                
+                self.tableView.reloadData()
             case .failure(let error):
                 print("the error \(error)")
             }
         }
         return returnValue
+    }
+    //will need to return ReactorAPIEventsResult?
+    func getEvents() -> ReactorAPIEventsResult?{
+        print("getting events")
+        return nil
+    }
+    //will need to return ReactorAPIDevicesResult?
+    func getDevices() -> ReactorAPIDevicesResult?{
+        print("getting devices")
+        return nil
+    }
+    //will need to return ReactorAPIDeviceGroupsResult?
+    func getDeviceGroups() ->ReactorAPIDeviceGroupsResult?{
+        print("getting  device groups")
+        return nil
     }
     
     func showErrorAlert(){

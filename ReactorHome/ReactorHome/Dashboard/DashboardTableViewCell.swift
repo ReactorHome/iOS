@@ -14,6 +14,8 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     
     var cellType: DashboardCellType?
     
+    //var data: 
+    
     @IBOutlet var innerTableView: UITableView!
     @IBOutlet var sectionTitleText: UILabel!
     @IBOutlet var buttonOutlet: UIButton!
