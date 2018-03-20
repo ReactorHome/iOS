@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let client = ReactorOauthClient()
+    let client2 = ReactorMainRequestClient()
     
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -60,6 +61,8 @@ class LoginViewController: UIViewController {
                 //setting access_token
                 let preferences = UserDefaults.standard
                 preferences.set(oauthResults.access_token, forKey: "access_token")
+                
+                print(oauthResults.access_token)
                 
                 //setting expires_at
                 let currentDateTime = Date()

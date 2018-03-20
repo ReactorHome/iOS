@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A901DDC3205DA4AF0070E831 /* ReactorAPIAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901DDC2205DA4AF0070E831 /* ReactorAPIAlerts.swift */; };
+		A901DDC5205DA8680070E831 /* ReactorMainRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901DDC4205DA8680070E831 /* ReactorMainRequestClient.swift */; };
+		A901DDC7205DA9410070E831 /* ReactorAPIGroupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901DDC6205DA9410070E831 /* ReactorAPIGroupResult.swift */; };
+		A901DDC9205DB7D30070E831 /* ReactorAPIGroupObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901DDC8205DB7D30070E831 /* ReactorAPIGroupObject.swift */; };
+		A901DDCB205DB8990070E831 /* ReactorAPIUserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901DDCA205DB8990070E831 /* ReactorAPIUserObject.swift */; };
 		A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931125E2047493900E6A340 /* CheckHubRegistration.swift */; };
 		A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9530B192032004B000750E6 /* RefreshAuth.swift */; };
 		A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */; };
@@ -51,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A901DDC2205DA4AF0070E831 /* ReactorAPIAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIAlerts.swift; sourceTree = "<group>"; };
+		A901DDC4205DA8680070E831 /* ReactorMainRequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorMainRequestClient.swift; sourceTree = "<group>"; };
+		A901DDC6205DA9410070E831 /* ReactorAPIGroupResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIGroupResult.swift; sourceTree = "<group>"; };
+		A901DDC8205DB7D30070E831 /* ReactorAPIGroupObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIGroupObject.swift; sourceTree = "<group>"; };
+		A901DDCA205DB8990070E831 /* ReactorAPIUserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIUserObject.swift; sourceTree = "<group>"; };
 		A931125E2047493900E6A340 /* CheckHubRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHubRegistration.swift; sourceTree = "<group>"; };
 		A9530B192032004B000750E6 /* RefreshAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAuth.swift; sourceTree = "<group>"; };
 		A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +258,7 @@
 				D63255B620293201000E50CC /* APIClient.swift */,
 				D63255BA20293202000E50CC /* ReactorOauthClient.swift */,
 				A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */,
+				A901DDC4205DA8680070E831 /* ReactorMainRequestClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -256,6 +267,10 @@
 			isa = PBXGroup;
 			children = (
 				D63255C120293206000E50CC /* ReactorAPIOauthResult.swift */,
+				A901DDC2205DA4AF0070E831 /* ReactorAPIAlerts.swift */,
+				A901DDC6205DA9410070E831 /* ReactorAPIGroupResult.swift */,
+				A901DDC8205DB7D30070E831 /* ReactorAPIGroupObject.swift */,
+				A901DDCA205DB8990070E831 /* ReactorAPIUserObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,12 +378,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A901DDC9205DB7D30070E831 /* ReactorAPIGroupObject.swift in Sources */,
 				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
 				A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */,
 				A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
 				A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */,
+				A901DDC3205DA4AF0070E831 /* ReactorAPIAlerts.swift in Sources */,
 				A9BEBACB202E32CA00A09703 /* APISuccess.swift in Sources */,
 				A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */,
 				A96A7363204098660098CC6C /* AlertCellType.swift in Sources */,
@@ -377,16 +394,19 @@
 				A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */,
 				D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */,
 				D63255BD20293202000E50CC /* Endpoint.swift in Sources */,
+				A901DDC5205DA8680070E831 /* ReactorMainRequestClient.swift in Sources */,
 				A9BEBACD202E425C00A09703 /* RegisterViewController.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
 				D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */,
 				A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */,
+				A901DDCB205DB8990070E831 /* ReactorAPIUserObject.swift in Sources */,
 				A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */,
 				D63255BB20293202000E50CC /* Result.swift in Sources */,
 				A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */,
 				A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */,
 				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
+				A901DDC7205DA9410070E831 /* ReactorAPIGroupResult.swift in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
 				D63255BE20293202000E50CC /* APIError.swift in Sources */,
 				A96A7358204093620098CC6C /* AlertBasicTableViewCell.swift in Sources */,
@@ -543,7 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CGU7ALY9N;
+				DEVELOPMENT_TEAM = 4F48D7BT8E;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myReactorHome.ReactorHome;
@@ -558,7 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CGU7ALY9N;
+				DEVELOPMENT_TEAM = 4F48D7BT8E;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myReactorHome.ReactorHome;

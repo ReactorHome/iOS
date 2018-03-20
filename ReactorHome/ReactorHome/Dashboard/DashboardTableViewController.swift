@@ -10,17 +10,20 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController, DashboardCellSegueProtocol{
 
+    
+    let mainRequestClient = ReactorMainRequestClient()
+    let preferences = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 140
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if preferences.string(forKey: "group_Id") == nil {
+            setGroupNumber()
+        }
+        print("Group ID: ")
+        print(preferences.string(forKey: "group_Id"))
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +65,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         default:
             cell.cellType = .errorCell
         }
-        
         return cell
     }
     
@@ -71,6 +73,26 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             return 300.0
         }else{
             return 50.0
+        }
+    }
+    
+    //Making request and setting the group number to the first group in the list... maybe allow them to adjust in settings?
+    func setGroupNumber() {
+        self.mainRequestClient.getGroup(from: .getUsersGroups){ result in
+            switch result{
+            case .success(let reactorAPIResult):
+                guard let getGroupResults = reactorAPIResult else {
+                    print("Unable to get Group")
+                    return
+                }
+                
+                if let group = getGroupResults.groups?[0]{
+                    self.preferences.set(group.id, forKey: "group_Id")
+                }
+                
+            case .failure(let error):
+                print("the error \(error)")
+            }
         }
     }
     
