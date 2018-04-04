@@ -12,6 +12,11 @@ class DeviceBasicTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var stateSwicth: UISwitch!
+   
+    
+    @IBAction func changeStateSwitch(_ sender: Any) {
+        print("Changed state of \(titleLabel.text!)")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

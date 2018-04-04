@@ -107,9 +107,10 @@ class LoginViewController: UIViewController {
                 }
                 
                 returnValue = getGroupResults
+                print("ASSIGNED")
                 
             case .failure(let error):
-                print("the error \(error)")
+                print("the error is \(error)")
             }
         }
         return returnValue

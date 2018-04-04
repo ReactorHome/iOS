@@ -63,4 +63,25 @@ class ReactorMainRequestClient: APIClient {
             return reactorAPIAlerts
         }, completion: completion)
     }
+    
+    func getHub(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIHubResult?, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        fetch(with: request, decode: {json -> ReactorAPIHubResult? in
+            guard let reactorAPIHubResult = json as? ReactorAPIHubResult else { return  nil }
+            return reactorAPIHubResult
+        }, completion: completion)
+        
+    }
 }

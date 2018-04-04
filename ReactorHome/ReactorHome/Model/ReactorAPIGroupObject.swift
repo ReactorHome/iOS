@@ -13,4 +13,6 @@ struct ReactorAPIGroupObject: Decodable {
     let id: Int?
     let owner: ReactorAPIUserObject?
     let accountList: [ReactorAPIUserObject]?
+    let hubId: String?
+    let name: String?
 }

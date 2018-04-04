@@ -13,8 +13,9 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     //getting group object from previous Segue
     var groupObject: ReactorAPIGroupResult?
     //setting up for other requests
-    var eventsObject: ReactorAPIEventsResult?
-    var devicesObject: ReactorAPIDevicesResult?
+    var hubObject: ReactorAPIHubResult?
+    var alertsObject: ReactorAPIAlerts?
+    var devicesObject: ReactorAPIHubResult?
     var deviceGroupsObject: ReactorAPIDeviceGroupsResult?
     
     let mainRequestClient = ReactorMainRequestClient()
@@ -23,11 +24,32 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     override func viewDidLoad() {
         super.viewDidLoad()
         if groupObject == nil{
-            groupObject = getGroups()
+            getGroups(){ result in
+                self.groupObject = result
+                
+                if (self.groupObject != nil){
+                    self.preferences.set(self.groupObject?.groups![0].hubId, forKey: "hub_id")
+                    self.preferences.set(self.groupObject?.groups![0].name, forKey: "hub_name")
+                }
+                
+                let dispatchGroup = DispatchGroup()
+                
+                dispatchGroup.enter()
+                self.getHub(hubId: (self.groupObject?.groups![0].hubId)!){ hubResult in
+                    self.devicesObject = hubResult
+                    dispatchGroup.leave()
+                }
+                
+                self.alertsObject = self.getAlerts()
+                self.deviceGroupsObject = self.getDeviceGroups()
+                
+                dispatchGroup.notify(queue: .main) {
+                    print("COMPLETE")
+                    self.tableView.reloadData()
+                }
+                
+            }
         }
-        eventsObject = getEvents()
-        devicesObject = getDevices()
-        deviceGroupsObject = getDeviceGroups()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,13 +79,21 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         //setting the delegate
         cell.delegate = self
         
+        //sending the data with each cell based on ell type
         switch indexPath.row {
         case 0:
             cell.cellType = .alertsCell
+            cell.alertsData = alertsObject
+            cell.innerTableView.reloadData()
         case 1:
             cell.cellType = .devicesCell
+            cell.deviceData = devicesObject
+            cell.innerTableView.isScrollEnabled = true
+            cell.innerTableView.reloadData()
         case 2:
             cell.cellType = .groupsCell
+            cell.deviceGroupData = deviceGroupsObject
+            cell.innerTableView.reloadData()
         default:
             cell.cellType = .errorCell
         }
@@ -92,8 +122,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         }
     }
 
-    func getGroups() -> ReactorAPIGroupResult?{
-        var returnValue: ReactorAPIGroupResult? = nil
+    func getGroups(completion: @escaping (ReactorAPIGroupResult?) -> Void) -> Void{
+        
         mainRequestClient.getGroup(from: .getUsersGroups){ result in
             switch result{
             case .success(let reactorAPIResult):
@@ -105,25 +135,33 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 if let group = getGroupResults.groups?[0]{
                     self.preferences.set(group.id, forKey: "group_Id")
                 }
-                
-                returnValue = getGroupResults
-                self.tableView.reloadData()
+                completion(getGroupResults)
             case .failure(let error):
                 print("the error \(error)")
             }
         }
-        return returnValue
     }
     //will need to return ReactorAPIEventsResult?
-    func getEvents() -> ReactorAPIEventsResult?{
+    func getAlerts() -> ReactorAPIAlerts?{
         print("getting events")
         return nil
     }
-    //will need to return ReactorAPIDevicesResult?
-    func getDevices() -> ReactorAPIDevicesResult?{
-        print("getting devices")
-        return nil
+    
+    func getHub(hubId: String, completion: @escaping (ReactorAPIHubResult?) -> Void) -> Void{
+        mainRequestClient.getHub(from: .getHubInfo(hubId)) { result in
+            switch result{
+            case .success(let reactorAPIResult):
+                guard let getHubResults = reactorAPIResult else {
+                    print("Unable to get Group")
+                    return
+                }
+                completion(getHubResults)
+            case .failure(let error):
+                print("the error \(error)")
+            }
+        }
     }
+    
     //will need to return ReactorAPIDeviceGroupsResult?
     func getDeviceGroups() ->ReactorAPIDeviceGroupsResult?{
         print("getting  device groups")

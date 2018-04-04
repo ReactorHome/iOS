@@ -14,14 +14,23 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     
     var cellType: DashboardCellType?
     
-    //var data: 
+    var deviceGroupData: ReactorAPIDeviceGroupsResult?
+    var deviceData: ReactorAPIHubResult?
+    var alertsData: ReactorAPIAlerts?
     
     @IBOutlet var innerTableView: UITableView!
     @IBOutlet var sectionTitleText: UILabel!
     @IBOutlet var buttonOutlet: UIButton!
     
     @IBAction func buttonAction(_ sender: Any) {
+        //all of these prints are only for testing that I successfully passed the data. can be removed.
         print("button action works!")
+        print("deviceData: ")
+        print(deviceData)
+        print("deviceGroupData: ")
+        print(deviceGroupData)
+        print("alertsData: ")
+        print(alertsData)
         
         if(self.delegate != nil){ //Just to be safe.
             self.delegate.callSegueFromCell(cellType: cellType!)
@@ -41,25 +50,58 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let cellType = cellType {
+            switch cellType {
+            case .alertsCell:
+                return 3
+            case .devicesCell:
+                if let deviceData = deviceData, let actualDeviceData = deviceData.devices{
+                        return actualDeviceData.count
+                }else{
+                    return 3
+                }
+            case .groupsCell:
+                return 3
+            default:
+               return 3
+            }
+        }else{
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellType = cellType {
+            
             switch cellType {
             case .alertsCell:
-                //will need to make the request to get the alerts and the determine type in here... this may not be architected exactly correctly yet, but basic concept is here
                 let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! AlertBasicTableViewCell
                 
                 cell.titleLabel.text = "Alert!"
                 
                 return cell
             case .devicesCell:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
                 
-                cell.titleLabel.text = "Device"
+                if let devices = deviceData?.devices!{
+                    switch devices[indexPath.row].type! {
+                    case 1://this means outlet
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                        cell.titleLabel.text = devices[indexPath.row].name
+                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: false)
+                        return cell
+                    //ADD MORE DEVICE TYPES HERE
+                    default:
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                        cell.titleLabel.text = "UNSUPPORTED DEVICE"
+                        return cell
+                    }
+                    
+                }else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                    cell.titleLabel.text = "Device"
+                    return cell
+                }
                 
-                return cell
             case .groupsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "groupbasiccell") as! GroupBasicTableViewCell
                 

@@ -672,6 +672,9 @@
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lz0-Op-CMe">
                                                                         <rect key="frame" x="266" y="6" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="changeStateSwitch:" destination="jfP-9Z-46r" eventType="valueChanged" id="8Ta-oZ-GCX"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <constraints>
