@@ -22,7 +22,7 @@ class DeviceBasicTableViewCell: UITableViewCell {
         if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
             mainRequestClient.updateOutlet(from: .updateOutlet(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
                 switch result{
-                case .success(let reactorAPIResult): break
+                case .success(_): break
                 case .failure(let error):
                     print("the error is \(error)")
                 }

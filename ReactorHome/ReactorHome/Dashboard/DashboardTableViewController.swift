@@ -46,7 +46,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 self.deviceGroupsObject = self.getDeviceGroups()
                 
                 dispatchGroup.notify(queue: .main) {
-                    print("COMPLETE")
                     self.tableView.reloadData()
                 }
                 
@@ -152,7 +151,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     func getHub(hubId: String, completion: @escaping (ReactorAPIHubResult?) -> Void) -> Void{
         mainRequestClient.getHub(from: .getHubInfo(hubId)) { result in
-            print("SENDING REQUEST FOR HUB+DEVICES")
+            //print("SENDING REQUEST FOR HUB+DEVICES")
             switch result{
             case .success(let reactorAPIResult):
                 guard let getHubResults = reactorAPIResult else {

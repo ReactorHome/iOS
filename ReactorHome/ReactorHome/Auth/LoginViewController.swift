@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
                 let preferences = UserDefaults.standard
                 preferences.set(oauthResults.access_token, forKey: "access_token")
                 
-                print(oauthResults.access_token)
+                //print(oauthResults.access_token)
                 
                 //setting expires_at
                 let currentDateTime = Date()
