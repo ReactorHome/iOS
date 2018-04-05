@@ -23,15 +23,6 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     @IBOutlet var buttonOutlet: UIButton!
     
     @IBAction func buttonAction(_ sender: Any) {
-        //all of these prints are only for testing that I successfully passed the data. can be removed.
-//        print("button action works!")
-//        print("deviceData: ")
-//        print(deviceData)
-//        print("deviceGroupData: ")
-//        print(deviceGroupData)
-//        print("alertsData: ")
-//        print(alertsData)
-        
         if(self.delegate != nil){ //Just to be safe.
             self.delegate.callSegueFromCell(cellType: cellType!)
         }

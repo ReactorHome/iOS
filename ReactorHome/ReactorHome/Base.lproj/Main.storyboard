@@ -854,6 +854,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="BzM-Ce-SZo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="8oG-VW-27o" kind="show" identifier="showAllAlerts" id="1wi-UJ-RnA"/>
                         <segue destination="S6r-Jb-kC4" kind="show" identifier="showManageDevices" id="ZoY-bC-0WR"/>

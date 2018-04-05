@@ -23,8 +23,19 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     var device: ReactorAPIDevice?
     
+    @objc func refreshTable() {
+        print("refreshed!!!!")
+        
+        getAllData()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        
         if groupObject == nil{
             getGroups(){ result in
                 self.groupObject = result
@@ -34,22 +45,28 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                     self.preferences.set(self.groupObject?.groups![0].name, forKey: "hub_name")
                 }
                 
-                let dispatchGroup = DispatchGroup()
-                
-                dispatchGroup.enter()
-                self.getHub(hubId: (self.groupObject?.groups![0].hubId)!){ hubResult in
-                    self.devicesObject = hubResult
-                    dispatchGroup.leave()
-                }
-                
-                self.alertsObject = self.getAlerts()
-                self.deviceGroupsObject = self.getDeviceGroups()
-                
-                dispatchGroup.notify(queue: .main) {
-                    self.tableView.reloadData()
-                }
-                
+                self.getAllData()
             }
+        }
+    }
+    
+    func getAllData() {
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        self.getHub(hubId: (self.groupObject?.groups![0].hubId)!){ hubResult in
+            self.devicesObject = hubResult
+            dispatchGroup.leave()
+        }
+        
+        //THIS IS WHERE WE WILL DO THE OTHER 2
+        self.alertsObject = self.getAlerts()
+        self.deviceGroupsObject = self.getDeviceGroups()
+        
+        dispatchGroup.notify(queue: .main) {
+            self.tableView.reloadData()
+            
+            self.refreshControl?.endRefreshing()
         }
     }
     
