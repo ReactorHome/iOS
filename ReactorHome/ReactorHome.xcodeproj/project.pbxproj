@@ -35,6 +35,8 @@
 		A9BF61B220757F1D000C7C58 /* ReactorAPIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61B120757F1D000C7C58 /* ReactorAPIDevice.swift */; };
 		A9BF61B4207580C7000C7C58 /* ReactorAPIHubResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61B3207580C7000C7C58 /* ReactorAPIHubResult.swift */; };
 		A9BF61BB2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */; };
+		A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */; };
+		A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A901F955D1B00CBD15E /* AppDelegate.swift */; };
@@ -91,6 +93,8 @@
 		A9BF61B120757F1D000C7C58 /* ReactorAPIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIDevice.swift; sourceTree = "<group>"; };
 		A9BF61B3207580C7000C7C58 /* ReactorAPIHubResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIHubResult.swift; sourceTree = "<group>"; };
 		A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletDeviceDetailViewController.swift; sourceTree = "<group>"; };
+		A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueLightDeviceDetailViewController.swift; sourceTree = "<group>"; };
+		A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestDetailViewController.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */,
+				A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */,
+				A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */,
 			);
 			path = deviceControllers;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				D63255BD20293202000E50CC /* Endpoint.swift in Sources */,
 				A901DDC5205DA8680070E831 /* ReactorMainRequestClient.swift in Sources */,
 				A9BEBACD202E425C00A09703 /* RegisterViewController.swift in Sources */,
+				A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
 				A950FFDE2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift in Sources */,
 				D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */,
@@ -454,6 +461,7 @@
 				D63255BB20293202000E50CC /* Result.swift in Sources */,
 				A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */,
 				A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */,
+				A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */,
 				A9BF61B4207580C7000C7C58 /* ReactorAPIHubResult.swift in Sources */,
 				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,
