@@ -82,6 +82,8 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                 
                 cell.titleLabel.text = "Alert!"
                 
+                
+                
                 return cell
             case .devicesCell:
                 

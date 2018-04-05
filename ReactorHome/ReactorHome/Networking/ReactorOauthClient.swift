@@ -31,9 +31,9 @@ class ReactorOauthClient: APIClient {
         let postString = "username=\(username)&password=\(password)&grant_type=password&scope=write&client_id=api-user"
         request.httpBody = postString.data(using: .utf8)
         
-        
         fetch(with: request , decode: { json -> ReactorAPIOauthResult? in
             guard let reactorAPIOauthResult = json as? ReactorAPIOauthResult else { return  nil }
+            //print(reactorAPIOauthResult.access_token)
             return reactorAPIOauthResult
         }, completion: completion)
     }

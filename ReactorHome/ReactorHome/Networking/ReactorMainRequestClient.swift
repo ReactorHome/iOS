@@ -28,6 +28,7 @@ class ReactorMainRequestClient: APIClient {
             print("failed to get access_token from user defaults")
             return
         }
+        print(token)
         
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -48,7 +49,7 @@ class ReactorMainRequestClient: APIClient {
         
         let preferences = UserDefaults.standard
         
-        guard let token = preferences.string(forKey: "access_token"), let group = preferences.string(forKey: "group") else{
+        guard let token = preferences.string(forKey: "access_token") else {
             //do some error handleing here
             return
         }
