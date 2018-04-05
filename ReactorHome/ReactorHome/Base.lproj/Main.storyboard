@@ -74,7 +74,7 @@
         <!--Device Detail Page-->
         <scene sceneID="OXI-gi-Tub">
             <objects>
-                <viewController title="Device Detail Page" id="efl-bG-gcw" sceneMemberID="viewController">
+                <viewController title="Device Detail Page" id="efl-bG-gcw" customClass="OutletDeviceDetailViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kkx-p2-VPS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -773,6 +773,7 @@
                         <segue destination="8oG-VW-27o" kind="show" identifier="showAllAlerts" id="1wi-UJ-RnA"/>
                         <segue destination="S6r-Jb-kC4" kind="show" identifier="showManageDevices" id="ZoY-bC-0WR"/>
                         <segue destination="kje-e0-9go" kind="show" identifier="showManageGroups" id="CDr-uQ-wfq"/>
+                        <segue destination="efl-bG-gcw" kind="show" identifier="outletDeviceDetailSegue" id="972-Fo-d1r"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQb-sE-V5E" userLabel="First Responder" sceneMemberID="firstResponder"/>

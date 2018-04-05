@@ -21,6 +21,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
     
+    var device: ReactorAPIDevice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if groupObject == nil{
@@ -97,6 +99,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         default:
             cell.cellType = .errorCell
         }
+        
         return cell
     }
     
@@ -149,6 +152,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     func getHub(hubId: String, completion: @escaping (ReactorAPIHubResult?) -> Void) -> Void{
         mainRequestClient.getHub(from: .getHubInfo(hubId)) { result in
+            print("SENDING REQUEST FOR HUB+DEVICES")
             switch result{
             case .success(let reactorAPIResult):
                 guard let getHubResults = reactorAPIResult else {
@@ -174,6 +178,28 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(alert, animated: true)
+    }
+    
+    
+    func showDisabledAlert(deviceName: String){
+        let alert = UIAlertController(title: "\(deviceName) is offline", message: "Reconnect the device to make changes to its properties", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice){
+        
+        device = currDevice
+        
+        self.performSegue(withIdentifier: "outletDeviceDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "outletDeviceDetailSegue", let destinationVC = segue.destination as?  OutletDeviceDetailViewController{
+            destinationVC.device = self.device
+        }
     }
 
 }

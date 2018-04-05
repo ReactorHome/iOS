@@ -24,13 +24,13 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     
     @IBAction func buttonAction(_ sender: Any) {
         //all of these prints are only for testing that I successfully passed the data. can be removed.
-        print("button action works!")
-        print("deviceData: ")
-        print(deviceData)
-        print("deviceGroupData: ")
-        print(deviceGroupData)
-        print("alertsData: ")
-        print(alertsData)
+//        print("button action works!")
+//        print("deviceData: ")
+//        print(deviceData)
+//        print("deviceGroupData: ")
+//        print(deviceGroupData)
+//        print("alertsData: ")
+//        print(alertsData)
         
         if(self.delegate != nil){ //Just to be safe.
             self.delegate.callSegueFromCell(cellType: cellType!)
@@ -43,10 +43,13 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
         innerTableView.dataSource = self
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let devices = deviceData?.devices!{
+            //print("selected \(devices[indexPath.row].name!)")
+            self.innerTableView.deselectRow(at: indexPath, animated: true)
+            self.delegate.callOutletDeviceSequeFromCell(currDevice: devices[indexPath.row])
+        }
+        self.innerTableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,8 +89,20 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                     switch devices[indexPath.row].type! {
                     case 1://this means outlet
                         let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                        
                         cell.titleLabel.text = devices[indexPath.row].name
-                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: false)
+                        cell.hardware_id = devices[indexPath.row].hardware_id
+                        
+                        //logic for if the device becomes disconnected
+                        if(!devices[indexPath.row].connected!){
+                            cell.stateSwicth.isEnabled = false
+                            self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
+                        }else{
+                            cell.stateSwicth.isEnabled = true
+                        }
+                        
+                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: true)
+                        
                         return cell
                     //ADD MORE DEVICE TYPES HERE
                     default:

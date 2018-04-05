@@ -61,6 +61,7 @@ extension APIClient {
             }else if httpResponse.statusCode == 409 { //this is if the username is taken
                 completion(APIError.usernameUnavailable)
             }else{
+                print(httpResponse.statusCode)
                 completion(APIError.responseUnsuccessful)
             }
         }
