@@ -86,7 +86,6 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                 
                 return cell
             case .devicesCell:
-                
                 if let devices = deviceData?.devices!{
                     switch devices[indexPath.row].type! {
                     case 1://this means outlet
@@ -94,16 +93,16 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         
                         cell.titleLabel.text = devices[indexPath.row].name
                         cell.hardware_id = devices[indexPath.row].hardware_id
+                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: true)
                         
                         //logic for if the device becomes disconnected
                         if(!devices[indexPath.row].connected!){
+                            cell.stateSwicth.setOn(false, animated: true)
                             cell.stateSwicth.isEnabled = false
                             self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
                         }else{
                             cell.stateSwicth.isEnabled = true
                         }
-                        
-                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: true)
                         
                         return cell
                     //ADD MORE DEVICE TYPES HERE

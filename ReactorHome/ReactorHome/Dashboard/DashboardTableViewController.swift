@@ -179,7 +179,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         self.present(alert, animated: true)
     }
     
-    
     func showDisabledAlert(deviceName: String){
         let alert = UIAlertController(title: "\(deviceName) is offline", message: "Reconnect the device to make changes to its properties", preferredStyle: .alert)
         
