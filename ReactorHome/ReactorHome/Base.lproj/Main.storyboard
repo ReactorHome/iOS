@@ -649,6 +649,7 @@
                         <outlet property="lastNameTextField" destination="ABr-nA-ErN" id="H95-kj-moe"/>
                         <outlet property="passwordTextField" destination="clt-35-9z2" id="wtZ-R2-BTi"/>
                         <outlet property="userNameTextField" destination="d4j-QO-0Ax" id="fIV-tT-mZw"/>
+                        <segue destination="17d-jK-N5s" kind="show" identifier="registerSegue" id="gnd-eG-vvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dy7-Jf-CTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -991,6 +992,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xwY-Cx-gdU"/>
+        <segue reference="gnd-eG-vvK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -34,7 +34,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         //make request for groups here
-        self.groupData = self.getGroups()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,11 +77,16 @@ class LoginViewController: UIViewController {
                 //setting refresh_token
                 preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
                 
-                if(self.groupData != nil){
-                    //need to send the data along with the segue here.
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
-                }else{
-                    self.performSegue(withIdentifier: "newUserSegue", sender: self)
+                self.getGroups(){groupResult in
+                    if let groupResult = groupResult, let groups = groupResult.groups{
+                        if groups.count != 0{
+                            self.performSegue(withIdentifier: "loginSegue", sender: self)
+                        }else{
+                            self.performSegue(withIdentifier: "newUserSegue", sender: self)
+                        }
+                    }else{
+                        self.performSegue(withIdentifier: "newUserSegue", sender: self)
+                    }
                 }
                 
             case .failure(let error):
@@ -92,8 +96,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func getGroups() -> ReactorAPIGroupResult?{
-        var returnValue: ReactorAPIGroupResult? = nil
+    func getGroups(completion: @escaping (ReactorAPIGroupResult?) -> Void) -> Void{
         client2.getGroup(from: .getUsersGroups){ result in
             switch result{
             case .success(let reactorAPIResult):
@@ -102,18 +105,20 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                if let group = getGroupResults.groups?[0]{
-                    self.preferences.set(group.id, forKey: "group_Id")
+                
+                if let groups = getGroupResults.groups{
+                    
+                    if groups.count != 0{
+                        print("non zero group")
+                        self.preferences.set(groups[0].id, forKey: "group_Id")
+                    }
+                    
                 }
-                
-                returnValue = getGroupResults
-                print("ASSIGNED")
-                
+                completion(getGroupResults)
             case .failure(let error):
-                print("the error is \(error)")
+                print("the error \(error)")
             }
         }
-        return returnValue
     }
     
     //show an alert for an invalid username or password

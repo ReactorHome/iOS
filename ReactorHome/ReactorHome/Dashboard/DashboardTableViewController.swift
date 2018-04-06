@@ -23,11 +23,9 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     var device: ReactorAPIDevice?
     
+    //function for refreshing
     @objc func refreshTable() {
-        print("refreshed!!!!")
-        
         getAllData()
-        
     }
     
     override func viewDidLoad() {
