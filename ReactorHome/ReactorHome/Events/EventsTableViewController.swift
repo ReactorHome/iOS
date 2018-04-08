@@ -10,92 +10,92 @@ import UIKit
 
 class EventsTableViewController: UITableViewController {
 
-    //header example data
-    let headerArray = ["1","2","3","4","5","6","7","8","9","10"]
+    //header data
+    var headerArray: [String] = []
+    var bucketArray: [[ReactorAPIEvent]] = []
+    
+    let mainRequestClient = ReactorMainRequestClient()
+    let preferences = UserDefaults.standard
+    
+    var eventsResult: ReactorAPIEventsResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if let groupId = preferences.string(forKey: "group_Id"){
+            mainRequestClient.getEvents(from: .getEventsForGroup(groupId)) { result in
+                switch result{
+                case .success(let reactorAPIEvents):
+                    guard let getEventsResults = reactorAPIEvents else {
+                        print("Unable to get Events")
+                        return
+                    }
+                    self.eventsResult = getEventsResults
+                    
+                    //setting header array
+                    for item in getEventsResults.events!{
+                        if !self.headerArray.contains(item.occurredAtDate!){
+                            self.headerArray.append(item.occurredAtDate!)
+                        }
+                    }
+                    
+                    self.bucketArray = Array(repeating: [], count: self.headerArray.count)
+                    
+                    for event in getEventsResults.events!{
+                        let indexOfEvent = self.headerArray.index(of: event.occurredAtDate!)
+                        self.bucketArray[indexOfEvent!].append(event)
+                    }
+                    
+                    self.tableView.reloadData()
+                    
+                case .failure(let error):
+                    print("the error \(error)")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 10
+        return headerArray.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        if let eventsResult = eventsResult{
+            var array:[ReactorAPIEvent] = []
+            for item in eventsResult.events!{
+                if item.occurredAtDate == headerArray[section]{
+                    array.append(item)
+                }
+            }
+            return array.count
+        }else{
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return headerArray[section];
+        if (!headerArray.isEmpty) {
+            return headerArray[section];
+        }else{
+            return "Unknown"
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventsCell", for: indexPath)
 
-        // Configure the cell...
-
+        if indexPath.section < headerArray.count && indexPath.row < bucketArray[indexPath.section].count {
+            cell.textLabel?.text = bucketArray[indexPath.section][indexPath.row].device
+            cell.detailTextLabel?.text = bucketArray[indexPath.section][indexPath.row].occurredAtDateLong
+        }
+        
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

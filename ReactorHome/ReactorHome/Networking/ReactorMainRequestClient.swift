@@ -42,6 +42,27 @@ class ReactorMainRequestClient: APIClient {
         }, completion: completion)
         
     }
+    //get hub also gets devices
+    func getHub(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIHubResult?, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        fetch(with: request, decode: {json -> ReactorAPIHubResult? in
+            guard let reactorAPIHubResult = json as? ReactorAPIHubResult else { return  nil }
+            return reactorAPIHubResult
+        }, completion: completion)
+        
+    }
     
     func getAlerts(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIAlerts?, APIError>) -> Void) {
         
@@ -65,13 +86,14 @@ class ReactorMainRequestClient: APIClient {
         }, completion: completion)
     }
     
-    func getHub(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIHubResult?, APIError>) -> Void) {
+    func getEvents(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIEventsResult?, APIError>) -> Void) {
         
         var request = ReactorAPIType.request
+        
         let preferences = UserDefaults.standard
-        guard let token = preferences.string(forKey: "access_token") else{
-            //do some error handling here
-            print("failed to get access_token from user defaults")
+        
+        guard let token = preferences.string(forKey: "access_token") else {
+            //do some error handleing here
             return
         }
         
@@ -79,13 +101,13 @@ class ReactorMainRequestClient: APIClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        fetch(with: request, decode: {json -> ReactorAPIHubResult? in
-            guard let reactorAPIHubResult = json as? ReactorAPIHubResult else { return  nil }
-            return reactorAPIHubResult
+        fetch(with: request, decode: {json -> ReactorAPIEventsResult? in
+            guard let reactorAPIEvents = json as? ReactorAPIEventsResult else { return  nil }
+            return reactorAPIEvents
         }, completion: completion)
-        
     }
     
+    //Device state changes
     func updateOutlet(from ReactorAPIType: ReactorAPI, hardware_id: String, on: Bool, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
         
         var request = ReactorAPIType.request

@@ -9,5 +9,5 @@
 import Foundation
 //fill with actual fields
 struct ReactorAPIEventsResult: Decodable {
-    let result: String?
+    let events: [ReactorAPIEvent]?
 }

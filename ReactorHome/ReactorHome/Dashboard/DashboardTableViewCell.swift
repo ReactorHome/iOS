@@ -90,7 +90,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         if(!devices[indexPath.row].connected!){
                             cell.stateSwicth.setOn(false, animated: true)
                             cell.stateSwicth.isEnabled = false
-                            self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
+                            //self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
                         }else{
                             cell.stateSwicth.isEnabled = true
                         }

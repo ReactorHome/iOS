@@ -10,6 +10,6 @@ import Foundation
 
 protocol DashboardCellSegueProtocol {
     func callSegueFromCell(cellType: DashboardCellType)
-    func showDisabledAlert(deviceName: String)
+    //func showDisabledAlert(deviceName: String)
     func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice)
 }
