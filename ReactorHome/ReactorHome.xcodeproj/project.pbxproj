@@ -15,6 +15,7 @@
 		A91EA6DB207ABBA0006EBD18 /* ReactorAPIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EA6DA207ABBA0006EBD18 /* ReactorAPIAlert.swift */; };
 		A91EA6E1207AC507006EBD18 /* ReactorAPIEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EA6E0207AC507006EBD18 /* ReactorAPIEvent.swift */; };
 		A91EA6E3207AC559006EBD18 /* ReactorAPIEventJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EA6E2207AC559006EBD18 /* ReactorAPIEventJSON.swift */; };
+		A91EA6E5207BDAB5006EBD18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EA6E4207BDAB5006EBD18 /* SettingsViewController.swift */; };
 		A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931125E2047493900E6A340 /* CheckHubRegistration.swift */; };
 		A950FFDE2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950FFDD2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift */; };
 		A950FFE22061D50000B7C2E2 /* ReactorAPIEventsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950FFE12061D50000B7C2E2 /* ReactorAPIEventsResult.swift */; };
@@ -76,6 +77,7 @@
 		A91EA6DA207ABBA0006EBD18 /* ReactorAPIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIAlert.swift; sourceTree = "<group>"; };
 		A91EA6E0207AC507006EBD18 /* ReactorAPIEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIEvent.swift; sourceTree = "<group>"; };
 		A91EA6E2207AC559006EBD18 /* ReactorAPIEventJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIEventJSON.swift; sourceTree = "<group>"; };
+		A91EA6E4207BDAB5006EBD18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A931125E2047493900E6A340 /* CheckHubRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHubRegistration.swift; sourceTree = "<group>"; };
 		A950FFDD2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIDeviceGroupsResult.swift; sourceTree = "<group>"; };
 		A950FFE12061D50000B7C2E2 /* ReactorAPIEventsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIEventsResult.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		A9E744CD201BC60C00322BA6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A91EA6E4207BDAB5006EBD18 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				A931125F2047493900E6A340 /* CheckHubRegistration.swift in Sources */,
 				A96A7365204098810098CC6C /* DeviceCellType.swift in Sources */,
 				A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */,
+				A91EA6E5207BDAB5006EBD18 /* SettingsViewController.swift in Sources */,
 				A9BF61B4207580C7000C7C58 /* ReactorAPIHubResult.swift in Sources */,
 				A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */,
 				A9E74A991F955D1B00CBD15E /* ReactorHome.xcdatamodeld in Sources */,

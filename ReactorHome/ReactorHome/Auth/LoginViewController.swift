@@ -106,12 +106,19 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                
-                if let groups = getGroupResults.groups{
+                if let groups = getGroupResults.groups {
+                    
+                    let setGroup: Int? = self.preferences.integer(forKey: "set_group_Id")
                     
                     if groups.count != 0{
-                        print("non zero group")
-                        self.preferences.set(groups[0].id, forKey: "group_Id")
+                        if setGroup != nil{
+                            print("HAS PREF GROUP")
+                            self.preferences.set(groups[setGroup!].id, forKey: "group_Id")
+                        }else{
+                            print("HAS NO PREF GROUP")
+                            self.preferences.set(0, forKey: "set_group_Id")
+                            self.preferences.set(groups[0].id, forKey: "group_Id")
+                        }
                     }
                     
                 }
