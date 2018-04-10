@@ -56,6 +56,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "settingsBasicDetailSegue", sender: self)
+        default:
+            print("No Segue Specified")
+        }
+    }
+    
     func getGroups(completion: @escaping (ReactorAPIGroupResult?) -> Void) -> Void{
         mainRequestClient.getGroup(from: .getUsersGroups){ result in
             switch result{
@@ -68,6 +77,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             case .failure(let error):
                 print("the error \(error)")
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsBasicDetailSegue", let destinationVC = segue.destination as? SettingsBasicDetailTableViewController {
+            destinationVC.groupObject = groupObject
+            destinationVC.title = "Hub Info"
         }
     }
 

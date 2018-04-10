@@ -9,7 +9,6 @@
 import Foundation
 
 struct ReactorAPIGroupObject: Decodable {
-    //let results: [ReactorOauth]? //results
     let id: Int?
     let owner: ReactorAPIUserObject?
     let accountList: [ReactorAPIUserObject]?

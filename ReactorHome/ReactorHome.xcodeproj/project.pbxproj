@@ -42,6 +42,7 @@
 		A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */; };
 		A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
+		A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A901F955D1B00CBD15E /* AppDelegate.swift */; };
 		A9E74A961F955D1B00CBD15E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A941F955D1B00CBD15E /* Main.storyboard */; };
@@ -104,6 +105,7 @@
 		A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueLightDeviceDetailViewController.swift; sourceTree = "<group>"; };
 		A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestDetailViewController.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBasicDetailTableViewController.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E74A901F955D1B00CBD15E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,14 @@
 			path = deviceControllers;
 			sourceTree = "<group>";
 		};
+		A9DC35DD207D1985003FCF3D /* Settings Detail Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */,
+			);
+			path = "Settings Detail Controllers";
+			sourceTree = "<group>";
+		};
 		A9E744C9201BC5EB00322BA6 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				A91EA6E4207BDAB5006EBD18 /* SettingsViewController.swift */,
+				A9DC35DD207D1985003FCF3D /* Settings Detail Controllers */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -444,6 +455,7 @@
 			files = (
 				A901DDC9205DB7D30070E831 /* ReactorAPIGroupObject.swift in Sources */,
 				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
+				A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */,
 				A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */,
 				A95D1FB02061B52900462DDF /* QRHubViewController.swift in Sources */,
 				A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */,
