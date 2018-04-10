@@ -43,6 +43,7 @@
 		A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */; };
+		A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A901F955D1B00CBD15E /* AppDelegate.swift */; };
 		A9E74A961F955D1B00CBD15E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A941F955D1B00CBD15E /* Main.storyboard */; };
@@ -106,6 +107,7 @@
 		A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestDetailViewController.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBasicDetailTableViewController.swift; sourceTree = "<group>"; };
+		A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E74A901F955D1B00CBD15E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				A91EA6E4207BDAB5006EBD18 /* SettingsViewController.swift */,
+				A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */,
 				A9DC35DD207D1985003FCF3D /* Settings Detail Controllers */,
 			);
 			path = Settings;
@@ -475,6 +478,7 @@
 				A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */,
 				D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */,
 				D63255BD20293202000E50CC /* Endpoint.swift in Sources */,
+				A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */,
 				A901DDC5205DA8680070E831 /* ReactorMainRequestClient.swift in Sources */,
 				A9BEBACD202E425C00A09703 /* RegisterViewController.swift in Sources */,
 				A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */,

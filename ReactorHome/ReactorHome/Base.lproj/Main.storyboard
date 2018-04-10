@@ -237,6 +237,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsPickerCell" id="Y3a-dk-L2g" customClass="SettingsPickerTableViewCell" customModule="ReactorHome" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3a-dk-L2g" id="gFN-c6-6s9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hub Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vH8-sj-9kW">
+                                                    <rect key="frame" x="277.5" y="6" width="89.5" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vH8-sj-9kW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gFN-c6-6s9" secondAttribute="leading" constant="20" symbolic="YES" id="D7x-6x-aEH"/>
+                                                <constraint firstAttribute="trailing" secondItem="vH8-sj-9kW" secondAttribute="trailing" constant="8" id="Lds-d4-R9c"/>
+                                                <constraint firstItem="vH8-sj-9kW" firstAttribute="centerY" secondItem="gFN-c6-6s9" secondAttribute="centerY" id="bKr-ZK-qD8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="vH8-sj-9kW" id="qzl-86-y13"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="n4y-nh-htu" id="aqj-fu-lLv"/>
@@ -349,7 +373,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSU-RQ-cdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="1701"/>
+            <point key="canvasLocation" x="2524" y="1700.5997001499252"/>
         </scene>
         <!--Settings-->
         <scene sceneID="aQm-by-WWT">
@@ -520,13 +544,13 @@
                                 <rect key="frame" x="100" y="251.5" width="175" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBo-nh-NMP">
                                 <rect key="frame" x="100" y="328.5" width="175" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1V-79-Bj5">
                                 <rect key="frame" x="143" y="219.5" width="89.5" height="24"/>
@@ -1082,7 +1106,7 @@
         <image name="TPlinkOutlet" width="150" height="107"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xwY-Cx-gdU"/>
+        <segue reference="kQQ-Wo-qWm"/>
         <segue reference="gnd-eG-vvK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
