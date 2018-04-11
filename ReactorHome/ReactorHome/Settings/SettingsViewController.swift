@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
-    
+
     let thePicker = UIPickerView()
     
     var resultGroups: [ReactorAPIGroupObject]?
@@ -25,19 +25,28 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let cellTitleArray = ["Hub Info", "Default Hub", "Manage Users"]
     
+    var pickerSelection: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let prefGroup = preferences.integer(forKey: "set_group_Id")
+        thePicker.delegate = self
+        thePicker.dataSource = self
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
         
+        refreshData()
+        
+    }
+    
+    func refreshData() {
+        let prefGroup = preferences.integer(forKey: "set_group_Id")
+        print(prefGroup)
         getGroups { result in
             if let groups = result?.groups{
                 self.resultGroups = groups
@@ -47,10 +56,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.topLabel.text = self.groupObject?.name
             self.rightLabel.text = ((self.groupObject?.accountList?.count)!+1).description
             self.leftLabel.text = self.groupObject?.owner?.firstName
-            
-            //print(self.groupObject)
+            self.tableView.reloadData()
         }
-        // Do any additional setup after loading the view.
     }
     
     override func dismissKeyboard() {
@@ -77,6 +84,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsPickerCell", for: indexPath) as! SettingsPickerTableViewCell
             cell.textLabel?.text = cellTitleArray[indexPath.row]
             cell.textField.inputView = thePicker
+            cell.textField.text = pickerSelection ?? groupObject?.name
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
@@ -91,13 +99,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         switch indexPath.row {
         case 0:
-            
             performSegue(withIdentifier: "settingsBasicDetailSegue", sender: self)
         case 1:
             print("changeing hub")
+        case 2:
+            performSegue(withIdentifier: "settingsUserControlSegue", sender: self)
         default:
             print("No Segue Specified")
         }
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -105,7 +115,28 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        if let groups = resultGroups {
+            return groups.count
+        }else{
+            return 1
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let groups = resultGroups else {
+            return ""
+        }
+        return groups[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let groups = resultGroups else {
+            print("could not unwrap resultGroups")
+            return
+        }
+        pickerSelection = groups[row].name
+        preferences.set(row, forKey: "set_group_Id")
+        refreshData()
     }
     
     func getGroups(completion: @escaping (ReactorAPIGroupResult?) -> Void) -> Void{
@@ -128,6 +159,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.groupObject = groupObject
             destinationVC.title = "Hub Info"
         }
+        
+        if segue.identifier == "settingsUserControlSegue", let destinationVC = segue.destination as? SettingsUserStatusViewController {
+            destinationVC.title = "Add User"
+        }
+        
     }
 
 }

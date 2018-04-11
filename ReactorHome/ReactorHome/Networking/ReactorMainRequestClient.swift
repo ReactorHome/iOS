@@ -127,4 +127,26 @@ class ReactorMainRequestClient: APIClient {
         fetch(with: request, completion: completion)
         
     }
+    
+    //group changes
+    func addUserToGroup(from ReactorAPIType: ReactorAPI, userName: String, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let postString = "{\"username\":\"\(userName)\"}"
+        request.httpBody = postString.data(using: .utf8)
+        
+        print(request)
+        
+        fetch(with: request, completion: completion)
+    }
 }

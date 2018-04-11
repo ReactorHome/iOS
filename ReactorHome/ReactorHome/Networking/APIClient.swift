@@ -60,6 +60,8 @@ extension APIClient {
                 completion(APISuccess.registeredUser)
             }else if httpResponse.statusCode == 409 { //this is if the username is taken
                 completion(APIError.usernameUnavailable)
+            }else if httpResponse.statusCode == 201 { //this is if the user is succesfully added to the group
+                completion(APISuccess.addedUserToGroup)
             }else{
                 print(httpResponse.statusCode)
                 completion(APIError.responseUnsuccessful)

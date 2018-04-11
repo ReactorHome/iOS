@@ -10,9 +10,11 @@ import Foundation
 
 enum APISuccess: APIResponse, Error {
     case registeredUser
+    case addedUserToGroup
     var localizedDescription: String {
         switch self {
         case .registeredUser: return "Successfully Registered User"
+        case .addedUserToGroup: return "Successfully Added User To Group"
         }
     }
 }
