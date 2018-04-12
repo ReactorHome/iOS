@@ -18,7 +18,7 @@ class AllAlertsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         if let data = data, let alerts = data.alerts{
-            revAlerts = alerts.reduce([],{ [$1] + $0 })
+            revAlerts = alerts.reversed()
         }
     }
 

@@ -14,6 +14,9 @@ class EventsTableViewController: UITableViewController {
     var headerArray: [String] = []
     var bucketArray: [[ReactorAPIEvent]] = []
     
+    var sortedHeaderArray: [String] = []
+    var sortedBucketArray: [[ReactorAPIEvent]]  = []
+    
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
     
@@ -46,6 +49,9 @@ class EventsTableViewController: UITableViewController {
                         self.bucketArray[indexOfEvent!].append(event)
                     }
                     
+                    self.sortedHeaderArray = self.headerArray.reversed()
+                    self.sortedBucketArray = self.bucketArray.reversed()
+                    
                     self.tableView.reloadData()
                     
                 case .failure(let error):
@@ -62,7 +68,7 @@ class EventsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return headerArray.count
+        return sortedHeaderArray.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +76,7 @@ class EventsTableViewController: UITableViewController {
         if let eventsResult = eventsResult{
             var array:[ReactorAPIEvent] = []
             for item in eventsResult.events!{
-                if item.occurredAtDate == headerArray[section]{
+                if item.occurredAtDate == sortedHeaderArray[section]{
                     array.append(item)
                 }
             }
@@ -82,7 +88,7 @@ class EventsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (!headerArray.isEmpty) {
-            return headerArray[section];
+            return sortedHeaderArray[section];
         }else{
             return "Unknown"
         }
@@ -90,12 +96,11 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsCell", for: indexPath)
-
-        if indexPath.section < headerArray.count && indexPath.row < bucketArray[indexPath.section].count {
-            cell.textLabel?.text = bucketArray[indexPath.section][indexPath.row].device
-            cell.detailTextLabel?.text = bucketArray[indexPath.section][indexPath.row].occurredAtDateLong
-        }
         
+        if indexPath.section < sortedHeaderArray.count && indexPath.row < sortedBucketArray[indexPath.section].count {
+            cell.textLabel?.text = sortedBucketArray[indexPath.section][indexPath.row].device
+            cell.detailTextLabel?.text = sortedBucketArray[indexPath.section][indexPath.row].occurredAtDateLong
+        }
         return cell
     }
     
