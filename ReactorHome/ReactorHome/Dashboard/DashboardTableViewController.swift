@@ -50,29 +50,34 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     func getAllData() {
         let dispatchGroup = DispatchGroup()
+        let groupNum = preferences.integer(forKey: "set_group_Id")
         
-        dispatchGroup.enter()
-        self.getHub(hubId: (self.groupObject?.groups![0].hubId)!){ hubResult in
-            self.devicesObject = hubResult
-            dispatchGroup.leave()
-        }
-        
-
-        
-        //THIS IS WHERE WE WILL DO THE OTHER 2
-        
-//        self.getAlerts(groupId: (self.groupObject?.groups![0].id)!){ alertsResult in
-//            self.alertsObject = alertsResult
-//            dispatchGroup.leave()
-//        }
-        
-        self.deviceGroupsObject = self.getDeviceGroups()
-        
-        dispatchGroup.notify(queue: .main) {
-            self.tableView.reloadData()
+        if let groupObject = self.groupObject{
+            dispatchGroup.enter()
+            self.getHub(hubId: (groupObject.groups![groupNum].hubId)!){ hubResult in
+                self.devicesObject = hubResult
+                dispatchGroup.leave()
+            }
             
+            dispatchGroup.enter()
+            self.getAlerts(groupId: (groupObject.groups![groupNum].id)!){ alertsResult in
+                self.alertsObject = alertsResult
+                dispatchGroup.leave()
+            }
+            
+            self.deviceGroupsObject = self.getDeviceGroups()
+            
+            dispatchGroup.notify(queue: .main) {
+                self.tableView.reloadData()
+                
+                self.refreshControl?.endRefreshing()
+            }
+        }else{
+            print("Unsuccessful refresh no group object exists")
             self.refreshControl?.endRefreshing()
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -133,7 +138,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     }
     
     func callSegueFromCell(cellType: DashboardCellType){
-        
         switch cellType{
         case .alertsCell:
             self.performSegue(withIdentifier: "showAllAlerts", sender: self)
@@ -147,7 +151,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     }
 
     func getGroups(completion: @escaping (ReactorAPIGroupResult?) -> Void) -> Void{
-        
         mainRequestClient.getGroup(from: .getUsersGroups){ result in
             switch result{
             case .success(let reactorAPIResult):
@@ -155,7 +158,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                     print("Unable to get Group")
                     return
                 }
-                
                 if let group = getGroupResults.groups?[0]{
                     self.preferences.set(group.id, forKey: "group_Id")
                 }
@@ -166,10 +168,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         }
     }
     
-    //MIGHT BE BROKEN??
     func getAlerts(groupId: Int, completion: @escaping (ReactorAPIAlerts?) -> Void) -> Void{
         mainRequestClient.getAlerts(from: .getAlertsForGroup(groupId.description)){ result in
-            //print("SENDING REQUEST FOR HUB+DEVICES")
             switch result{
             case .success(let reactorAPIAlerts):
                 guard let getAlertsResults = reactorAPIAlerts else {
@@ -181,12 +181,10 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 print("the error \(error)")
             }
         }
-        print("getting Alerts")
     }
     
     func getHub(hubId: String, completion: @escaping (ReactorAPIHubResult?) -> Void) -> Void{
         mainRequestClient.getHub(from: .getHubInfo(hubId)) { result in
-            //print("SENDING REQUEST FOR HUB+DEVICES")
             switch result{
             case .success(let reactorAPIResult):
                 guard let getHubResults = reactorAPIResult else {
@@ -214,14 +212,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         self.present(alert, animated: true)
     }
     
-//    func showDisabledAlert(deviceName: String){
-//        let alert = UIAlertController(title: "\(deviceName) is offline", message: "Reconnect the device to make changes to its properties", preferredStyle: .alert)
-//        
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        
-//        self.present(alert, animated: true)
-//    }
-    
     func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice){
         device = currDevice
         self.performSegue(withIdentifier: "outletDeviceDetailSegue", sender: self)
@@ -230,6 +220,9 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "outletDeviceDetailSegue", let destinationVC = segue.destination as?  OutletDeviceDetailViewController{
             destinationVC.device = self.device
+        }
+        if segue.identifier == "showAllAlerts", let destinationVC = segue.destination as? AllAlertsTableViewController {
+            destinationVC.data = alertsObject
         }
     }
 

@@ -9,5 +9,5 @@
 import Foundation
 
 struct ReactorAPIAlerts: Decodable {
-    let alerts: [ReactorAPIAlerts]?
+    let alerts: [ReactorAPIAlert]?
 }

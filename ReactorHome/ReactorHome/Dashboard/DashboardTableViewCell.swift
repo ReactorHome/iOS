@@ -69,11 +69,15 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
             
             switch cellType {
             case .alertsCell:
+                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! AlertBasicTableViewCell
                 
-                cell.titleLabel.text = "Alert!"
-                
-                
+                if let alertsData = alertsData, let alerts = alertsData.alerts{
+                    let numAlerts = alerts.count
+                    cell.titleLabel.text = alerts[numAlerts-indexPath.row].data
+                }else{
+                    cell.titleLabel.text = ""
+                }
                 
                 return cell
             case .devicesCell:
@@ -84,6 +88,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         
                         cell.titleLabel.text = devices[indexPath.row].name
                         cell.hardware_id = devices[indexPath.row].hardware_id
+                        cell.stateSwicth.isHidden = false
                         cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: true)
                         
                         //logic for if the device becomes disconnected
@@ -105,7 +110,8 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                     
                 }else{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
-                    cell.titleLabel.text = "Device"
+                    cell.titleLabel.text = ""
+                    cell.stateSwicth.isHidden = true
                     return cell
                 }
                 
