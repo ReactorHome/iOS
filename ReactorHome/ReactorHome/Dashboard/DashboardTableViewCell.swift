@@ -66,15 +66,13 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cellType = cellType {
-            
             switch cellType {
             case .alertsCell:
-                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! AlertBasicTableViewCell
                 
                 if let alertsData = alertsData, let alerts = alertsData.alerts{
-                    let numAlerts = alerts.count
-                    cell.titleLabel.text = alerts[numAlerts-indexPath.row].data
+                    let sortedAlerts: [ReactorAPIAlert] = alerts.reversed()
+                    cell.titleLabel.text = sortedAlerts[indexPath.row].data
                 }else{
                     cell.titleLabel.text = ""
                 }
@@ -110,15 +108,17 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                     
                 }else{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                    
                     cell.titleLabel.text = ""
                     cell.stateSwicth.isHidden = true
+                    
                     return cell
                 }
-                
             case .groupsCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "groupbasiccell") as! GroupBasicTableViewCell
                 
-                cell.titleLabel.text = "Group"
+                cell.titleLabel.text = ""
+                cell.stateSwicth.isHidden = true
                 
                 return cell
             default:
