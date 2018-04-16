@@ -62,6 +62,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             dispatchGroup.enter()
             self.getAlerts(groupId: (groupObject.groups![groupNum].id)!){ alertsResult in
                 self.alertsObject = alertsResult
+                print(alertsResult)
                 dispatchGroup.leave()
             }
             
@@ -69,7 +70,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             
             dispatchGroup.notify(queue: .main) {
                 self.tableView.reloadData()
-                
                 self.refreshControl?.endRefreshing()
             }
         }else{

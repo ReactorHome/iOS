@@ -47,7 +47,11 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
         if let cellType = cellType {
             switch cellType {
             case .alertsCell:
-                return 3
+                if let alertsData = alertsData, let alerts = alertsData.alerts{
+                    return alerts.count
+                }else{
+                    return 3
+                }
             case .devicesCell:
                 if let deviceData = deviceData, let actualDeviceData = deviceData.devices{
                         return actualDeviceData.count
@@ -65,16 +69,17 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let cellType = cellType {
             switch cellType {
             case .alertsCell:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! AlertBasicTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! UITableViewCell
                 
                 if let alertsData = alertsData, let alerts = alertsData.alerts{
                     let sortedAlerts: [ReactorAPIAlert] = alerts.reversed()
-                    cell.titleLabel.text = sortedAlerts[indexPath.row].data
+                    cell.textLabel?.text = sortedAlerts[indexPath.row].data
                 }else{
-                    cell.titleLabel.text = ""
+                    cell.textLabel?.text = ""
                 }
                 
                 return cell
@@ -123,7 +128,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                 return cell
             default:
                 //this case should never occur
-                let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! AlertBasicTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "alertbasiccell") as! UITableViewCell
                 return cell
             }
         }else{

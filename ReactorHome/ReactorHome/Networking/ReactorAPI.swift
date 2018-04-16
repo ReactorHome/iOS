@@ -49,7 +49,7 @@ extension ReactorAPI: Endpoint {
         case .getHubInfo(let hubId): return "/device/api/\(hubId)/hub"
         case .getGroupInfo(let groupNumber): return "/user/api/groups/\(groupNumber)"
         case .getUsersGroups: return "/user/api/users/me/groups"
-        case .getAlertsForGroup(let groupNumber): return "/user/api/groups/\(groupNumber)/"
+        case .getAlertsForGroup(let groupNumber): return "/user/api/alerts/\(groupNumber)/"
         case .getEventsForGroup(let groupNumber): return "/user/api/events/\(groupNumber)/"
         case .enrollForMobileNotifications: return "/user/api/notifications/enroll"
         case .updateNestThermostat(let hubId, let thermostatId): return "/device/api/\(hubId)/thermostat/\(thermostatId)"

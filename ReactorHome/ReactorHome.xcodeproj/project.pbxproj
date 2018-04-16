@@ -25,7 +25,6 @@
 		A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */; };
 		A95D1FB02061B52900462DDF /* QRHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D1FAF2061B52900462DDF /* QRHubViewController.swift */; };
 		A95D1FB42061B58700462DDF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95D1FB32061B58700462DDF /* AVFoundation.framework */; };
-		A96A7358204093620098CC6C /* AlertBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */; };
 		A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */; };
 		A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */; };
 		A96A7363204098660098CC6C /* AlertCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7362204098660098CC6C /* AlertCellType.swift */; };
@@ -91,7 +90,6 @@
 		A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellSegueProtocol.swift; sourceTree = "<group>"; };
 		A95D1FAF2061B52900462DDF /* QRHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRHubViewController.swift; sourceTree = "<group>"; };
 		A95D1FB32061B58700462DDF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A735D204093D50098CC6C /* GroupBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBasicTableViewCell.swift; sourceTree = "<group>"; };
 		A96A7362204098660098CC6C /* AlertCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCellType.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				A96A7362204098660098CC6C /* AlertCellType.swift */,
-				A96A7357204093620098CC6C /* AlertBasicTableViewCell.swift */,
 				A9DC35E62080031B003FCF3D /* AllAlertsTableViewController.swift */,
 			);
 			name = AlertCells;
@@ -509,7 +506,6 @@
 				A9BF61B220757F1D000C7C58 /* ReactorAPIDevice.swift in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
 				D63255BE20293202000E50CC /* APIError.swift in Sources */,
-				A96A7358204093620098CC6C /* AlertBasicTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

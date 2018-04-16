@@ -656,7 +656,7 @@
                             <constraint firstItem="564-HJ-5rI" firstAttribute="centerX" secondItem="Pf9-Wi-wWr" secondAttribute="centerX" id="nMV-w3-wD3"/>
                             <constraint firstItem="QMj-sv-cNO" firstAttribute="centerX" secondItem="Pf9-Wi-wWr" secondAttribute="centerX" id="sde-2w-6SP"/>
                             <constraint firstItem="Pf9-Wi-wWr" firstAttribute="trailing" secondItem="564-HJ-5rI" secondAttribute="trailing" constant="80" id="u3Y-sn-8d1"/>
-                            <constraint firstItem="bBo-nh-NMP" firstAttribute="leading" secondItem="Pf9-Wi-wWr" secondAttribute="leading" constant="100" id="wAs-Mv-3nC"/>
+                            <constraint firstItem="bBo-nh-NMP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pf9-Wi-wWr" secondAttribute="leading" id="wAs-Mv-3nC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pf9-Wi-wWr"/>
                     </view>
@@ -902,28 +902,22 @@
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alertbasiccell" id="uPn-Pl-snt" customClass="AlertBasicTableViewCell" customModule="ReactorHome" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alertbasiccell" textLabel="NBz-4S-hFh" style="IBUITableViewCellStyleDefault" id="uPn-Pl-snt" customClass="AlertBasicTableViewCell" customModule="ReactorHome" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="29" width="330" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uPn-Pl-snt" id="VHY-EL-lQb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="43.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJs-Lg-6AT">
-                                                                        <rect key="frame" x="10" y="10.5" width="48" height="24"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NBz-4S-hFh">
+                                                                        <rect key="frame" x="15" y="0.0" width="300" height="43.5"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="dJs-Lg-6AT" firstAttribute="leading" secondItem="VHY-EL-lQb" secondAttribute="leading" constant="10" id="lZF-nT-2Ua"/>
-                                                                    <constraint firstItem="dJs-Lg-6AT" firstAttribute="centerY" secondItem="VHY-EL-lQb" secondAttribute="centerY" id="z0w-R1-Tcl"/>
-                                                                </constraints>
                                                             </tableViewCellContentView>
-                                                            <connections>
-                                                                <outlet property="titleLabel" destination="dJs-Lg-6AT" id="Izf-Bw-dcP"/>
-                                                            </connections>
                                                         </tableViewCell>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="devicebasiccell" id="jfP-9Z-46r" customClass="DeviceBasicTableViewCell" customModule="ReactorHome" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="73" width="330" height="44"/>
@@ -1172,7 +1166,7 @@
         <image name="TPlinkOutlet" width="150" height="107"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xwY-Cx-gdU"/>
+        <segue reference="kQQ-Wo-qWm"/>
         <segue reference="gnd-eG-vvK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

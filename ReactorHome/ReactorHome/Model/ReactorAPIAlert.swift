@@ -9,5 +9,8 @@
 import Foundation
 
 struct ReactorAPIAlert: Decodable {
+    let id: Int?
+    let types: Int?
     let data: String?
+    let dataJson: String?
 }
