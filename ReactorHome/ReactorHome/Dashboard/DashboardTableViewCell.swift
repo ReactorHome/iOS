@@ -40,6 +40,12 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
             self.innerTableView.deselectRow(at: indexPath, animated: true)
             self.delegate.callOutletDeviceSequeFromCell(currDevice: devices[indexPath.row])
         }
+        
+        if let alerts = alertsData?.alerts!{
+            self.innerTableView.deselectRow(at: indexPath, animated: true)
+            self.delegate.callAlertDetailSegueFromCell()
+        }
+        
         self.innerTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -48,13 +54,17 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
             switch cellType {
             case .alertsCell:
                 if let alertsData = alertsData, let alerts = alertsData.alerts{
-                    return alerts.count
+                    if alerts.count <= 3{
+                        return alerts.count
+                    }else{
+                        return 3
+                    }
                 }else{
                     return 3
                 }
             case .devicesCell:
                 if let deviceData = deviceData, let actualDeviceData = deviceData.devices{
-                        return actualDeviceData.count
+                    return actualDeviceData.count
                 }else{
                     return 3
                 }

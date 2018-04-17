@@ -20,6 +20,7 @@
 		A950FFDE2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950FFDD2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift */; };
 		A950FFE22061D50000B7C2E2 /* ReactorAPIEventsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950FFE12061D50000B7C2E2 /* ReactorAPIEventsResult.swift */; };
 		A9530B1A2032004B000750E6 /* RefreshAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9530B192032004B000750E6 /* RefreshAuth.swift */; };
+		A9556EAD2086959900B162D9 /* AddDeviceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9556EAC2086959900B162D9 /* AddDeviceCollectionViewCell.swift */; };
 		A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */; };
 		A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C28203C97570087C6E6 /* DashboardCellType.swift */; };
 		A9575C2B203CAD560087C6E6 /* DashboardCellSegueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */; };
@@ -45,6 +46,7 @@
 		A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */; };
 		A9DC35E5207DC363003FCF3D /* SettingsUserStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E4207DC363003FCF3D /* SettingsUserStatusViewController.swift */; };
 		A9DC35E72080031B003FCF3D /* AllAlertsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E62080031B003FCF3D /* AllAlertsTableViewController.swift */; };
+		A9DC35EA2086935D003FCF3D /* AddDeviceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E92086935D003FCF3D /* AddDeviceCollectionViewController.swift */; };
 		A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */; };
 		A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E74A901F955D1B00CBD15E /* AppDelegate.swift */; };
 		A9E74A961F955D1B00CBD15E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E74A941F955D1B00CBD15E /* Main.storyboard */; };
@@ -85,6 +87,7 @@
 		A950FFDD2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIDeviceGroupsResult.swift; sourceTree = "<group>"; };
 		A950FFE12061D50000B7C2E2 /* ReactorAPIEventsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIEventsResult.swift; sourceTree = "<group>"; };
 		A9530B192032004B000750E6 /* RefreshAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAuth.swift; sourceTree = "<group>"; };
+		A9556EAC2086959900B162D9 /* AddDeviceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9575C24203C94D20087C6E6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		A9575C28203C97570087C6E6 /* DashboardCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellType.swift; sourceTree = "<group>"; };
 		A9575C2A203CAD560087C6E6 /* DashboardCellSegueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellSegueProtocol.swift; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
 		A9DC35E4207DC363003FCF3D /* SettingsUserStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserStatusViewController.swift; sourceTree = "<group>"; };
 		A9DC35E62080031B003FCF3D /* AllAlertsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAlertsTableViewController.swift; sourceTree = "<group>"; };
+		A9DC35E820867EC7003FCF3D /* ReactorHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReactorHome.entitlements; sourceTree = "<group>"; };
+		A9DC35E92086935D003FCF3D /* AddDeviceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceCollectionViewController.swift; sourceTree = "<group>"; };
 		A9E639F61F96A5D900BDB094 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A9E74A8D1F955D1B00CBD15E /* ReactorHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E74A901F955D1B00CBD15E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9556EAB2086957800B162D9 /* Add Device */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC35E92086935D003FCF3D /* AddDeviceCollectionViewController.swift */,
+				A9556EAC2086959900B162D9 /* AddDeviceCollectionViewCell.swift */,
+			);
+			path = "Add Device";
+			sourceTree = "<group>";
+		};
 		A95D1FB12061B52E00462DDF /* HubRegistration */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +223,7 @@
 		A9BF61B72075C8CF000C7C58 /* deviceControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9556EAB2086957800B162D9 /* Add Device */,
 				A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */,
 				A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */,
 				A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */,
@@ -286,6 +301,7 @@
 		A9E74A8F1F955D1B00CBD15E /* ReactorHome */ = {
 			isa = PBXGroup;
 			children = (
+				A9DC35E820867EC7003FCF3D /* ReactorHome.entitlements */,
 				D63255C620293221000E50CC /* Model */,
 				D63255C520293217000E50CC /* Networking */,
 				A9E744CD201BC60C00322BA6 /* Settings */,
@@ -407,6 +423,11 @@
 					A9E74A8C1F955D1B00CBD15E = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					D626FED3203DF0F200B81F3D = {
 						CreatedOnToolsVersion = 9.2;
@@ -465,6 +486,7 @@
 				A9575C29203C97570087C6E6 /* DashboardCellType.swift in Sources */,
 				A95D1FB02061B52900462DDF /* QRHubViewController.swift in Sources */,
 				A96A735E204093D50098CC6C /* GroupBasicTableViewCell.swift in Sources */,
+				A9DC35EA2086935D003FCF3D /* AddDeviceCollectionViewController.swift in Sources */,
 				A9DC35E5207DC363003FCF3D /* SettingsUserStatusViewController.swift in Sources */,
 				A950FFE22061D50000B7C2E2 /* ReactorAPIEventsResult.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
@@ -482,6 +504,7 @@
 				A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */,
 				D63255C020293202000E50CC /* ReactorOauthClient.swift in Sources */,
 				D63255BD20293202000E50CC /* Endpoint.swift in Sources */,
+				A9556EAD2086959900B162D9 /* AddDeviceCollectionViewCell.swift in Sources */,
 				A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */,
 				A901DDC5205DA8680070E831 /* ReactorMainRequestClient.swift in Sources */,
 				A9BEBACD202E425C00A09703 /* RegisterViewController.swift in Sources */,
@@ -658,12 +681,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ReactorHome/ReactorHome.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F48D7BT8E;
+				DEVELOPMENT_TEAM = 4FNJNUQ3AD;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactorHome.ReactorHome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MyReactorHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -673,12 +699,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ReactorHome/ReactorHome.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F48D7BT8E;
+				DEVELOPMENT_TEAM = 4FNJNUQ3AD;
 				INFOPLIST_FILE = ReactorHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactorHome.ReactorHome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MyReactorHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

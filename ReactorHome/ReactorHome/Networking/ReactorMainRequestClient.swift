@@ -79,11 +79,11 @@ class ReactorMainRequestClient: APIClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        print(request)
+        //print(request)
         
         fetch(with: request, decode: {json -> ReactorAPIAlerts? in
             guard let reactorAPIAlerts = json as? ReactorAPIAlerts else { return  nil }
-            print(reactorAPIAlerts.alerts?[0].data)
+            //print(reactorAPIAlerts.alerts?[0].data)
             return reactorAPIAlerts
         }, completion: completion)
     }

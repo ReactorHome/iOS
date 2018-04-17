@@ -62,7 +62,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             dispatchGroup.enter()
             self.getAlerts(groupId: (groupObject.groups![groupNum].id)!){ alertsResult in
                 self.alertsObject = alertsResult
-                print(alertsResult)
+                //print(alertsResult)
                 dispatchGroup.leave()
             }
             
@@ -215,6 +215,10 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice){
         device = currDevice
         self.performSegue(withIdentifier: "outletDeviceDetailSegue", sender: self)
+    }
+    
+    func callAlertDetailSegueFromCell(){
+        self.performSegue(withIdentifier: "alertDetailSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
