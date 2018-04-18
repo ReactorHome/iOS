@@ -1080,24 +1080,26 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addDeviceCell" id="Dc3-hG-UyI" customClass="AddDeviceCollectionViewCell" customModule="ReactorHome" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRZ-N7-mhe">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="QRZ-N7-mhe" secondAttribute="height" multiplier="1:1" id="GBf-SR-99D"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QRZ-N7-mhe" secondAttribute="bottom" id="R7b-XL-zMf"/>
-                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="leading" secondItem="Dc3-hG-UyI" secondAttribute="leading" id="YWe-ft-pGP"/>
-                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="top" secondItem="Dc3-hG-UyI" secondAttribute="top" id="kia-Go-QNT"/>
-                                    <constraint firstAttribute="trailing" secondItem="QRZ-N7-mhe" secondAttribute="trailing" id="njm-LM-xDh"/>
+                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="width" secondItem="Dc3-hG-UyI" secondAttribute="width" id="Cgg-k5-6NP"/>
+                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="centerX" secondItem="Dc3-hG-UyI" secondAttribute="centerX" id="brL-b5-BF7"/>
+                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="height" secondItem="Dc3-hG-UyI" secondAttribute="height" id="kvq-64-4si"/>
+                                    <constraint firstItem="QRZ-N7-mhe" firstAttribute="centerY" secondItem="Dc3-hG-UyI" secondAttribute="centerY" id="pqQ-in-Hyj"/>
                                 </constraints>
-                                <size key="customSize" width="125" height="125"/>
                                 <connections>
                                     <outlet property="imageView" destination="QRZ-N7-mhe" id="Een-6y-wiH"/>
                                 </connections>

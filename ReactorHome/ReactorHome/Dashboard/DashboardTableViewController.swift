@@ -74,6 +74,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             }
         }else{
             print("Unsuccessful refresh no group object exists")
+            print("token is vaild == \(oauthValidationCheck())")
             self.refreshControl?.endRefreshing()
         }
         

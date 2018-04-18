@@ -13,18 +13,21 @@ private let reuseIdentifier = "addDeviceCell"
 class AddDeviceCollectionViewController: UICollectionViewController {
 
     let deviceArray = ["Nest Thermostat", "Hue Bridge"]
-    let deviceImageArray: [UIImage] = [#imageLiteral(resourceName: "TPlinkOutlet")]
+    let deviceImageArray: [UIImage] = [#imageLiteral(resourceName: "NestIcon"), #imageLiteral(resourceName: "HueIcon")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        let numberOfCellsPerRow: CGFloat = 3
+        
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.minimumInteritemSpacing = 10
+            flowLayout.minimumLineSpacing = 10
+            let horizontalSpacing = flowLayout.minimumInteritemSpacing
+            let cellWidth = (view.frame.width - (numberOfCellsPerRow - 1)*horizontalSpacing)/numberOfCellsPerRow
+            flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+            collectionView?.collectionViewLayout = flowLayout
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +64,17 @@ class AddDeviceCollectionViewController: UICollectionViewController {
         cell.imageView.image = deviceImageArray[indexPath.row]
     
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch deviceArray[indexPath.row] {
+        case "Nest Thermostat":
+            print("Nest")
+        case "Hue Bridge":
+            print("Hue")
+        default:
+            print("Unknown")
+        }
     }
 
     // MARK: UICollectionViewDelegate

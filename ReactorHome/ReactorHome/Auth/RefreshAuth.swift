@@ -22,10 +22,9 @@ func oauthValidationCheck() -> Bool {
     }
     
     //if still valid we do not need to refresh
-    if ( expires_at >= currentDateTime){
+    if (expires_at >= currentDateTime){
         successFlag = true
         return successFlag
-        
     }else{
         //this could still be broken
         //refreshing here
