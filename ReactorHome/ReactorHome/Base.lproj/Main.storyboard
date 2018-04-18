@@ -1110,10 +1110,90 @@
                             <outlet property="delegate" destination="x9M-iB-yOe" id="zQT-ph-xrn"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="ueX-ft-9MI" kind="show" identifier="addHueSegue" id="SBF-sY-RXG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TuG-rm-55T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2736.8000000000002" y="-2198.0509745127438"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bvu-jT-ui6">
+            <objects>
+                <viewController id="6MH-wF-WcL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5qc-E1-hw2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="w4o-Ef-vDC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Gx-wT-QzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3574" y="-2916"/>
+        </scene>
+        <!--Add Hue-->
+        <scene sceneID="erh-ed-J84">
+            <objects>
+                <viewController id="ueX-ft-9MI" customClass="HueViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IFt-fK-DuX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the &quot;Push-Link&quot; button on the bridge, then press &quot;Done&quot;." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-4h-GJL">
+                                <rect key="frame" x="16" y="484" width="344" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TSi-Lf-888"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Push-LinkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mxm-hq-Qd7">
+                                <rect key="frame" x="37" y="164" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mxm-hq-Qd7" secondAttribute="height" multiplier="1:1" id="lxy-nu-eci"/>
+                                    <constraint firstAttribute="width" constant="300" id="qhG-aR-vaz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mxm-hq-Qd7" firstAttribute="top" secondItem="cdS-mS-eEh" secondAttribute="top" constant="100" id="8yV-fS-j5s"/>
+                            <constraint firstItem="mxm-hq-Qd7" firstAttribute="centerX" secondItem="cdS-mS-eEh" secondAttribute="centerX" id="Vwc-99-Yej"/>
+                            <constraint firstItem="IJg-4h-GJL" firstAttribute="top" secondItem="mxm-hq-Qd7" secondAttribute="bottom" constant="20" id="cCC-xH-K9X"/>
+                            <constraint firstItem="IJg-4h-GJL" firstAttribute="leading" secondItem="cdS-mS-eEh" secondAttribute="leading" constant="16" id="fqV-Rb-OQR"/>
+                            <constraint firstItem="IJg-4h-GJL" firstAttribute="centerX" secondItem="cdS-mS-eEh" secondAttribute="centerX" id="yij-R9-Bdz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cdS-mS-eEh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Hue" id="XYY-2s-guE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="USd-92-z9l">
+                            <connections>
+                                <action selector="addHueButton:" destination="ueX-ft-9MI" id="buM-oq-vgD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLK-pz-fxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3544.8000000000002" y="-2198.0509745127438"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mcQ-VF-eFO">
+            <objects>
+                <viewController id="mXn-ab-ygL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BYS-vk-mrD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rXQ-XF-Cej"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peq-dF-vB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4393" y="-2198"/>
         </scene>
         <!--All Alerts-->
         <scene sceneID="Ump-pY-vB6">
@@ -1224,6 +1304,7 @@
     <resources>
         <image name="EventIcon" width="32" height="32"/>
         <image name="HomeIcon" width="32" height="32"/>
+        <image name="Push-LinkIcon" width="171" height="163"/>
         <image name="ReactorIcon" width="225" height="225"/>
         <image name="ScheduleIcon" width="32" height="32"/>
         <image name="SettingsIcon" width="32" height="32"/>

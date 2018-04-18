@@ -71,7 +71,7 @@ class AddDeviceCollectionViewController: UICollectionViewController {
         case "Nest Thermostat":
             print("Nest")
         case "Hue Bridge":
-            print("Hue")
+            performSegue(withIdentifier: "addHueSegue", sender: self)
         default:
             print("Unknown")
         }

@@ -15,6 +15,7 @@ enum ReactorAPI {
     case register
     case registerHub
     case registerWithNest(String) //pass in mongoHubId
+    case registerHueBridge(String) //pass in mongoHubId
     //Info retrival
     case getHubInfo(String) //pass in mongoHubId
     case getGroupInfo(String) //pass in groupNumber
@@ -46,6 +47,7 @@ extension ReactorAPI: Endpoint {
         case .register: return "/user/api/users/register"
         case .registerHub: return "/"
         case .registerWithNest(let hubId): return "/device/api/\(hubId)/thermostat/nest/register"
+        case .registerHueBridge(let hubId): return "/device/api/\(hubId)/bridge/"
         case .getHubInfo(let hubId): return "/device/api/\(hubId)/hub"
         case .getGroupInfo(let groupNumber): return "/user/api/groups/\(groupNumber)"
         case .getUsersGroups: return "/user/api/users/me/groups"

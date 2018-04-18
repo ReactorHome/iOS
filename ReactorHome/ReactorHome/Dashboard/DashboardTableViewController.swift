@@ -21,6 +21,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
     
+    var groupNum: Int?
     var device: ReactorAPIDevice?
     
     //function for refreshing
@@ -32,6 +33,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         super.viewDidLoad()
         
         let token = preferences.string(forKey: "push_token")
+        groupNum = preferences.integer(forKey: "set_group_Id")
+        
         if token != nil{
             //send token
             mainRequestClient.enrollForMobileNotifications(from: .enrollForMobileNotifications, token: token!) { result in
@@ -45,7 +48,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             preferences.setValue(true, forKey: "previous_token")
         }
         
-        
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.tintColor = UIColor.gray
         refreshControl?.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
@@ -55,10 +57,14 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 self.groupObject = result
                 
                 if (self.groupObject != nil){
-                    self.preferences.set(self.groupObject?.groups![0].hubId, forKey: "hub_id")
-                    self.preferences.set(self.groupObject?.groups![0].name, forKey: "hub_name")
+                    if let groupNum = self.groupNum{
+                        self.preferences.set(self.groupObject?.groups![groupNum].hubId, forKey: "hub_id")
+                        self.preferences.set(self.groupObject?.groups![groupNum].name, forKey: "hub_name")
+                    }else{
+                        self.preferences.set(self.groupObject?.groups![0].hubId, forKey: "hub_id")
+                        self.preferences.set(self.groupObject?.groups![0].name, forKey: "hub_name")
+                    }
                 }
-                
                 self.getAllData()
             }
         }
@@ -66,7 +72,11 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     func getAllData() {
         let dispatchGroup = DispatchGroup()
-        let groupNum = preferences.integer(forKey: "set_group_Id")
+        
+        guard let groupNum = groupNum else {
+            print("bad group num in getAllData")
+            return
+        }
         
         if let groupObject = self.groupObject{
             dispatchGroup.enter()
