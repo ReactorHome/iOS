@@ -42,6 +42,7 @@ extension APIClient {
                     completion(nil, .invalidData)
                 }
             }else{
+                print("refresh here 1")
                 completion(nil, .responseUnsuccessful)
             }
         }
@@ -64,6 +65,35 @@ extension APIClient {
                 completion(APISuccess.addedUserToGroup)
             }else{
                 print(httpResponse.statusCode)
+                print("refresh here 2")
+                let client = ReactorOauthClient()
+                let preferences = UserDefaults.standard
+                client.getOauthRefresh(from: .oauth){ result in
+                    switch result {
+                    case .success(let reactorAPIResult):
+                        guard let oauthResults = reactorAPIResult else {
+                            print("There was an error in oauthValidationCheck request portion")
+                            return
+                        }
+                        //setting access_token
+                        preferences.set(oauthResults.access_token, forKey: "access_token")
+                        
+                        //setting expires_at
+                        let currentDateTime = Date()
+                        let expires_in = TimeInterval(oauthResults.expires_in!)
+                        let expires_at = currentDateTime.addingTimeInterval(expires_in)
+                        preferences.set(expires_at, forKey: "expires_at")
+                        
+                        //setting refresh_token
+                        preferences.set(oauthResults.refresh_token, forKey: "refresh_token")
+                        
+                        print("REFRESHED THE TOKEN BECUASE OF A BAD RESPONSE")
+                        
+                    case .failure(let error):
+                        print("the error \(error)")
+                        return
+                    }
+                }
                 completion(APIError.responseUnsuccessful)
             }
         }

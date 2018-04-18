@@ -151,4 +151,23 @@ class ReactorMainRequestClient: APIClient {
         
         fetch(with: request, completion: completion)
     }
+    
+    func enrollForMobileNotifications(from ReactorAPIType: ReactorAPI, token: String, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let accessToken = preferences.string(forKey: "access_token") else{
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        let postString = "{\"notificationAddress\":\"\(token)\"}"
+        request.httpBody = postString.data(using: .utf8)
+        
+        fetch(with: request, completion: completion)
+    }
+    
 }

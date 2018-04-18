@@ -30,6 +30,22 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let token = preferences.string(forKey: "push_token")
+        if token != nil{
+            //send token
+            mainRequestClient.enrollForMobileNotifications(from: .enrollForMobileNotifications, token: token!) { result in
+                switch result{
+                case .success:
+                    print("successfully enrolled for mobile notifications")
+                case .failure(let error):
+                    print("the error \(error)")
+                }
+            }
+            preferences.setValue(true, forKey: "previous_token")
+        }
+        
+        
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.tintColor = UIColor.gray
         refreshControl?.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
