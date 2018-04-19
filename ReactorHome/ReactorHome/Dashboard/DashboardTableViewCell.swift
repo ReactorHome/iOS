@@ -140,15 +140,18 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         cell.hardware_id = devices[indexPath.row].hardware_id
                         
                         cell.tempInput.inputView = thePicker
-//                        let selectedIndex = thePicker?.selectedRow(inComponent: 0)
-//                        let tempArray = Array(50...90)
-//                        cell.tempInput.text = tempArray[selectedIndex]
+                        
+                        if let selectedIndex = thePicker?.selectedRow(inComponent: 0){
+                            let tempArray = Array(50...90)
+                            cell.tempInput.text = "\(tempArray[selectedIndex].description)℉"
+                        }
+                        
                         //logic for if the device becomes disconnected
                         if(!devices[indexPath.row].connected!){
-//                            cell.stateSwicth.setOn(false, animated: true)
-//                            cell.stateSwicth.isEnabled = false
+                            cell.tempInput.isEnabled = false
+                            cell.tempInput.text = "Uknown"
                         }else{
-//                            cell.stateSwicth.isEnabled = true
+                            cell.tempInput.isEnabled = true
                         }
                         
                         return cell
