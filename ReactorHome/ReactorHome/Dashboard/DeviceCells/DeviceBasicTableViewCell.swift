@@ -17,17 +17,38 @@ class DeviceBasicTableViewCell: UITableViewCell {
     let preferences = UserDefaults.standard
     
     var hardware_id: String?
+    var deviceType: DeviceCellType?
     
     @IBAction func changeStateSwitch(_ sender: Any) {
-        if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
-            mainRequestClient.updateOutlet(from: .updateOutlet(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
-                switch result{
-                case .success(_): break
-                case .failure(let error):
-                    print("the error is \(error)")
+        
+        if let deviceType = deviceType{
+            switch deviceType{
+            case .hueLightCell:
+                if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
+                    mainRequestClient.updateHueLight(from: .updateHueLight(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
+                        switch result{
+                        case .success(_): break
+                        case .failure(let error):
+                            print("the error is \(error)")
+                        }
+                    })
                 }
-            })
+            case .tpLinkCell:
+                if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
+                    mainRequestClient.updateOutlet(from: .updateOutlet(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
+                        switch result{
+                        case .success(_): break
+                        case .failure(let error):
+                            print("the error is \(error)")
+                        }
+                    })
+                }
+            default:
+                print("UNKNOWN DEVICE CHANGE REQUEST IN DEVICEBASICTABLEVIEWCELL")
+            }
         }
+        
+        
     }
     
     override func awakeFromNib() {

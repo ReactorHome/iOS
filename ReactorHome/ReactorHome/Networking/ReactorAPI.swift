@@ -27,6 +27,7 @@ enum ReactorAPI {
     //Change Device state
     case updateNestThermostat(String, String) //pass in mongoHubId and thermostatId
     case updateOutlet(String)//pass in mongoHubId
+    case updateHueLight(String)//pass in mongoHubId
     //Settings
     case addUserToGroup(String)//pass in groupNumber
 }
@@ -58,6 +59,7 @@ extension ReactorAPI: Endpoint {
         case .enrollForMobileNotifications: return "/user/api/notifications/enroll/"
         case .updateNestThermostat(let hubId, let thermostatId): return "/device/api/\(hubId)/thermostat/\(thermostatId)"
         case .updateOutlet(let hubId): return "/device/api/\(hubId)/outlet/"
+        case .updateHueLight(let hubId): return "/device/api/\(hubId)/light/"
         case .addUserToGroup(let groupNumber): return "/user/api/groups/\(groupNumber)/users/"
         }
     }

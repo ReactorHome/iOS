@@ -98,6 +98,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                     switch devices[indexPath.row].type! {
                     case 0://this means Hue Light
                         let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                        cell.deviceType = DeviceCellType.hueLightCell
                         cell.stateSwicth.isHidden = false
                         cell.titleLabel.text = devices[indexPath.row].name
                         cell.hardware_id = devices[indexPath.row].hardware_id
@@ -114,7 +115,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         return cell
                     case 1://this means outlet
                         let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
-                        
+                        cell.deviceType = DeviceCellType.tpLinkCell
                         cell.titleLabel.text = devices[indexPath.row].name
                         cell.hardware_id = devices[indexPath.row].hardware_id
                         cell.stateSwicth.isHidden = false

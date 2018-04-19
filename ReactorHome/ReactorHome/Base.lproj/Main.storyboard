@@ -202,8 +202,8 @@
                                     <constraint firstAttribute="width" secondItem="Ypm-0q-p0V" secondAttribute="height" multiplier="20:29" id="jMs-Q8-LAz"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="brU-RZ-8qV">
-                                <rect key="frame" x="0.0" y="340" width="375" height="278"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="brU-RZ-8qV">
+                                <rect key="frame" x="0.0" y="294" width="375" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hueLightInfoCell" textLabel="tGk-rG-g9Z" detailTextLabel="UP1-zj-CnK" style="IBUITableViewCellStyleValue1" id="1pv-oK-s7F">
@@ -236,14 +236,8 @@
                                     <outlet property="delegate" destination="fuY-TS-pES" id="dyq-Ln-nSl"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaR-4o-7eh">
-                                <rect key="frame" x="146" y="249" width="82" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bbg-71-plu">
-                                <rect key="frame" x="48" y="290" width="279" height="31"/>
+                                <rect key="frame" x="48" y="244" width="279" height="31"/>
                                 <color key="tintColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderAction:" destination="fuY-TS-pES" eventType="valueChanged" id="qhX-vJ-kOA"/>
@@ -253,14 +247,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bbg-71-plu" firstAttribute="leading" secondItem="LJo-PK-y3D" secondAttribute="leading" constant="50" id="3dH-H3-z2B"/>
-                            <constraint firstItem="PaR-4o-7eh" firstAttribute="top" secondItem="Ypm-0q-p0V" secondAttribute="bottom" constant="25" id="6HK-e3-R1s"/>
                             <constraint firstItem="LJo-PK-y3D" firstAttribute="trailing" secondItem="brU-RZ-8qV" secondAttribute="trailing" id="8s6-P2-zuc"/>
-                            <constraint firstItem="bbg-71-plu" firstAttribute="top" secondItem="PaR-4o-7eh" secondAttribute="bottom" constant="20" id="JPN-QF-GgF"/>
                             <constraint firstItem="Ypm-0q-p0V" firstAttribute="centerX" secondItem="LJo-PK-y3D" secondAttribute="centerX" id="NUA-Oi-stY"/>
                             <constraint firstItem="LJo-PK-y3D" firstAttribute="trailing" secondItem="bbg-71-plu" secondAttribute="trailing" constant="50" id="V7Q-hz-TeN"/>
                             <constraint firstItem="LJo-PK-y3D" firstAttribute="bottom" secondItem="brU-RZ-8qV" secondAttribute="bottom" id="Wti-2d-vLE"/>
                             <constraint firstItem="brU-RZ-8qV" firstAttribute="top" secondItem="bbg-71-plu" secondAttribute="bottom" constant="20" id="ePb-kX-9qZ"/>
-                            <constraint firstItem="PaR-4o-7eh" firstAttribute="centerX" secondItem="LJo-PK-y3D" secondAttribute="centerX" id="hfX-0d-eL2"/>
+                            <constraint firstItem="bbg-71-plu" firstAttribute="top" secondItem="Ypm-0q-p0V" secondAttribute="bottom" constant="20" id="lK3-KP-mC8"/>
                             <constraint firstItem="Ypm-0q-p0V" firstAttribute="top" secondItem="LJo-PK-y3D" secondAttribute="top" constant="15" id="vQX-QQ-4s1"/>
                             <constraint firstItem="brU-RZ-8qV" firstAttribute="leading" secondItem="LJo-PK-y3D" secondAttribute="leading" id="yBc-s2-Yks"/>
                         </constraints>

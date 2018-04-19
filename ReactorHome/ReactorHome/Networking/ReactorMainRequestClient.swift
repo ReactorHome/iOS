@@ -128,6 +128,44 @@ class ReactorMainRequestClient: APIClient {
         
         fetch(with: request, completion: completion)
     }
+    //NEED TO CHNAGE THIS
+    func updateHueLight(from ReactorAPIType: ReactorAPI, hardware_id: String, on: Bool, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let postString = "{\"hardware_id\":\"\(hardware_id)\",\"on\":\"\(on)\",\"type\":0}"
+        request.httpBody = postString.data(using: .utf8)
+        
+        fetch(with: request, completion: completion)
+    }
+    
+    func updateHueLightBrightness(from ReactorAPIType: ReactorAPI, hardware_id: String, brightness: Int, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let postString = "{\"hardware_id\":\"\(hardware_id)\",\"brightness\":\"\(brightness)\",\"type\":0}"
+        request.httpBody = postString.data(using: .utf8)
+        
+        fetch(with: request, completion: completion)
+    }
     
     //group changes
     func addUserToGroup(from ReactorAPIType: ReactorAPI, userName: String, completion: @escaping (Result<APISuccess, APIError>) -> Void) {

@@ -12,13 +12,25 @@ class HueLightDeviceDetailViewController: UIViewController, UITableViewDelegate,
 
     var device: ReactorAPIDevice?
     
+    let mainRequestClient = ReactorMainRequestClient()
+    let preferences = UserDefaults.standard
+    
     let cellTitleArray = ["Status","Connection","Hardware ID","Manufacturer","Model"]
     var valueArray: [String] = []
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var slider: UISlider!
     @IBAction func sliderAction(_ sender: Any) {
-        print("DEVICE BRIGHTNESS VALUE CHANGED")
+        if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = device?.hardware_id{
+            mainRequestClient.updateHueLightBrightness(from: .updateHueLight(hubId), hardware_id: hardware_id, brightness: Int(slider.value), completion: { result in
+                switch result{
+                case .success(_):
+                    print("Updated brightness")
+                case .failure(let error):
+                    print("the error is \(error)")
+                }
+            })
+        }
     }
     
     override func viewDidLoad() {
@@ -29,8 +41,6 @@ class HueLightDeviceDetailViewController: UIViewController, UITableViewDelegate,
         
         self.title = device?.name!
         if let value = device?.brightness{
-            print("DEVICE BRIGHTNESS VALUE")
-            print(value)
             slider.setValue(Float(value), animated: true)
         }
         
