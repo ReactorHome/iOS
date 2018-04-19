@@ -354,8 +354,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hub Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vH8-sj-9kW">
-                                                    <rect key="frame" x="277.5" y="6" width="89.5" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Hub Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vH8-sj-9kW">
+                                                    <rect key="frame" x="294.5" y="12.5" width="72.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1037,8 +1037,40 @@
                                                                 <outlet property="titleLabel" destination="vZW-0F-0cp" id="zW0-NX-dZe"/>
                                                             </connections>
                                                         </tableViewCell>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupbasiccell" id="ZFo-KT-DUb" customClass="GroupBasicTableViewCell" customModule="ReactorHome" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deviceScrollCell" id="vqn-fE-9cu" customClass="DeviceScrollTableViewCell" customModule="ReactorHome" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="117" width="330" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vqn-fE-9cu" id="pnL-iw-Dfi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plb-38-YOa">
+                                                                        <rect key="frame" x="10" y="10.5" width="48" height="24"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="70℉" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-36-klW">
+                                                                        <rect key="frame" x="274" y="11.5" width="41" height="21"/>
+                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="Plb-38-YOa" firstAttribute="leading" secondItem="pnL-iw-Dfi" secondAttribute="leading" constant="10" id="7th-p7-rxd"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="OEc-36-klW" secondAttribute="trailing" constant="15" id="WBv-zy-hfY"/>
+                                                                    <constraint firstItem="OEc-36-klW" firstAttribute="centerY" secondItem="pnL-iw-Dfi" secondAttribute="centerY" id="fGc-za-jXz"/>
+                                                                    <constraint firstItem="Plb-38-YOa" firstAttribute="centerY" secondItem="pnL-iw-Dfi" secondAttribute="centerY" id="yYc-gl-caX"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="tempInput" destination="OEc-36-klW" id="nJh-iZ-h01"/>
+                                                                <outlet property="titleLabel" destination="Plb-38-YOa" id="aTa-1O-S4s"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupbasiccell" id="ZFo-KT-DUb" customClass="GroupBasicTableViewCell" customModule="ReactorHome" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="161" width="330" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZFo-KT-DUb" id="M0v-Av-hXk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="43.5"/>

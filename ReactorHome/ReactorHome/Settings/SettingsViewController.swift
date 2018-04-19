@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var rightLabel: UILabel!
     
     let cellTitleArray = ["Hub Info", "Default Hub", "Manage Users"]
-    
+    //change for picker
     var pickerSelection: String?
     
     override func viewDidLoad() {
@@ -41,7 +41,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         view.addGestureRecognizer(tap)
         
         refreshData()
-        
     }
     
     func refreshData() {

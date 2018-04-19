@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DashboardTableViewController: UITableViewController, DashboardCellSegueProtocol{
-
+class DashboardTableViewController: UITableViewController, DashboardCellSegueProtocol, UIPickerViewDelegate, UIPickerViewDataSource{
+    
     //getting group object from previous Segue
     var groupObject: ReactorAPIGroupResult?
     //setting up for other requests
@@ -20,6 +20,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     let mainRequestClient = ReactorMainRequestClient()
     let preferences = UserDefaults.standard
+    let thePicker = UIPickerView()
+    let tempArray = Array(50...90)
     
     var groupNum: Int?
     var device: ReactorAPIDevice?
@@ -28,6 +30,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     @objc func refreshTable() {
         getAllData()
     }
+    
+    var pickerSelection: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,16 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         refreshControl?.tintColor = UIColor.gray
         refreshControl?.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
         
+        thePicker.delegate = self
+        thePicker.dataSource = self
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
         if groupObject == nil{
             getGroups(){ result in
                 self.groupObject = result
@@ -68,6 +82,11 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 self.getAllData()
             }
         }
+    }
+    
+    override func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func getAllData() {
@@ -163,6 +182,22 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             return 50.0
         }
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tempArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tempArray[row].description
+    }
+    //reenable for when selecting a number
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//
+//    }
     
     func callSegueFromCell(cellType: DashboardCellType){
         switch cellType{

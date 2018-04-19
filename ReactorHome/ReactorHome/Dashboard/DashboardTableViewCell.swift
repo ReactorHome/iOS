@@ -18,6 +18,8 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
     var deviceData: ReactorAPIHubResult?
     var alertsData: ReactorAPIAlerts?
     
+    var thePicker: UIPickerView?
+    
     @IBOutlet var innerTableView: UITableView!
     @IBOutlet var sectionTitleText: UILabel!
     @IBOutlet var buttonOutlet: UIButton!
@@ -128,6 +130,25 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                             //self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
                         }else{
                             cell.stateSwicth.isEnabled = true
+                        }
+                        
+                        return cell
+                    case 2://this means Nest
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "deviceScrollCell") as! DeviceScrollTableViewCell
+                        cell.deviceType = DeviceCellType.tpLinkCell
+                        cell.titleLabel.text = devices[indexPath.row].name
+                        cell.hardware_id = devices[indexPath.row].hardware_id
+                        
+                        cell.tempInput.inputView = thePicker
+//                        let selectedIndex = thePicker?.selectedRow(inComponent: 0)
+//                        let tempArray = Array(50...90)
+//                        cell.tempInput.text = tempArray[selectedIndex]
+                        //logic for if the device becomes disconnected
+                        if(!devices[indexPath.row].connected!){
+//                            cell.stateSwicth.setOn(false, animated: true)
+//                            cell.stateSwicth.isEnabled = false
+                        }else{
+//                            cell.stateSwicth.isEnabled = true
                         }
                         
                         return cell

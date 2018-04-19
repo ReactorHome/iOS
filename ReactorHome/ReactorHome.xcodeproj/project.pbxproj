@@ -45,6 +45,7 @@
 		A9BF61BB2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */; };
 		A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */; };
 		A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */; };
+		A9C8512820890076001E6C67 /* DeviceScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8512720890076001E6C67 /* DeviceScrollTableViewCell.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */; };
 		A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */; };
@@ -116,6 +117,7 @@
 		A9BF61BA2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletDeviceDetailViewController.swift; sourceTree = "<group>"; };
 		A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueLightDeviceDetailViewController.swift; sourceTree = "<group>"; };
 		A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestDetailViewController.swift; sourceTree = "<group>"; };
+		A9C8512720890076001E6C67 /* DeviceScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScrollTableViewCell.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBasicDetailTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A9BF61B72075C8CF000C7C58 /* deviceControllers */,
 				A96A7364204098810098CC6C /* DeviceCellType.swift */,
 				A96A735A204093A10098CC6C /* DeviceBasicTableViewCell.swift */,
+				A9C8512720890076001E6C67 /* DeviceScrollTableViewCell.swift */,
 			);
 			path = DeviceCells;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */,
 				A9E74A911F955D1B00CBD15E /* AppDelegate.swift in Sources */,
 				A91EA6E3207AC559006EBD18 /* ReactorAPIEventJSON.swift in Sources */,
+				A9C8512820890076001E6C67 /* DeviceScrollTableViewCell.swift in Sources */,
 				A950FFDE2061D48800B7C2E2 /* ReactorAPIDeviceGroupsResult.swift in Sources */,
 				D63255C320293207000E50CC /* ReactorAPIOauthResult.swift in Sources */,
 				A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */,
