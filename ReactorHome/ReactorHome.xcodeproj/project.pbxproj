@@ -33,6 +33,9 @@
 		A96A7367204098930098CC6C /* GroupCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A7366204098930098CC6C /* GroupCellType.swift */; };
 		A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98787632028DE98006BDA51 /* LoginViewController.swift */; };
 		A9BA06E82086F1D4001117D8 /* HueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA06E72086F1D4001117D8 /* HueViewController.swift */; };
+		A9BA06EB2087AB0B001117D8 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA06EA2087AB0B001117D8 /* ScheduleTableViewController.swift */; };
+		A9BA06ED2087F918001117D8 /* ReactorAPIScheduleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA06EC2087F918001117D8 /* ReactorAPIScheduleEvent.swift */; };
+		A9BA06EF2087FA77001117D8 /* ReactorAPIScheduledEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA06EE2087FA77001117D8 /* ReactorAPIScheduledEvents.swift */; };
 		A9BEBAC5202E20AF00A09703 /* ReactorRegisterUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */; };
 		A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBAC8202E308900A09703 /* APIResponse.swift */; };
 		A9BEBACB202E32CA00A09703 /* APISuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEBACA202E32CA00A09703 /* APISuccess.swift */; };
@@ -101,6 +104,9 @@
 		A96A7366204098930098CC6C /* GroupCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellType.swift; sourceTree = "<group>"; };
 		A98787632028DE98006BDA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9BA06E72086F1D4001117D8 /* HueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueViewController.swift; sourceTree = "<group>"; };
+		A9BA06EA2087AB0B001117D8 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		A9BA06EC2087F918001117D8 /* ReactorAPIScheduleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIScheduleEvent.swift; sourceTree = "<group>"; };
+		A9BA06EE2087FA77001117D8 /* ReactorAPIScheduledEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIScheduledEvents.swift; sourceTree = "<group>"; };
 		A9BEBAC4202E20AF00A09703 /* ReactorRegisterUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorRegisterUserClient.swift; sourceTree = "<group>"; };
 		A9BEBAC8202E308900A09703 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		A9BEBACA202E32CA00A09703 /* APISuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISuccess.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 		A9E744CB201BC60000322BA6 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				A9BA06EA2087AB0B001117D8 /* ScheduleTableViewController.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -379,6 +386,8 @@
 				A91EA6E2207AC559006EBD18 /* ReactorAPIEventJSON.swift */,
 				A901DDC2205DA4AF0070E831 /* ReactorAPIAlerts.swift */,
 				A91EA6DA207ABBA0006EBD18 /* ReactorAPIAlert.swift */,
+				A9BA06EE2087FA77001117D8 /* ReactorAPIScheduledEvents.swift */,
+				A9BA06EC2087F918001117D8 /* ReactorAPIScheduleEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BA06EB2087AB0B001117D8 /* ScheduleTableViewController.swift in Sources */,
 				A901DDC9205DB7D30070E831 /* ReactorAPIGroupObject.swift in Sources */,
 				D63255BF20293202000E50CC /* ReactorAPI.swift in Sources */,
 				A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */,
@@ -507,6 +517,7 @@
 				A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */,
 				A901DDC3205DA4AF0070E831 /* ReactorAPIAlerts.swift in Sources */,
 				A9BEBACB202E32CA00A09703 /* APISuccess.swift in Sources */,
+				A9BA06ED2087F918001117D8 /* ReactorAPIScheduleEvent.swift in Sources */,
 				A91EA6E1207AC507006EBD18 /* ReactorAPIEvent.swift in Sources */,
 				A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */,
 				A9BF61BB2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift in Sources */,
@@ -541,6 +552,7 @@
 				A9BF61B220757F1D000C7C58 /* ReactorAPIDevice.swift in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
 				D63255BE20293202000E50CC /* APIError.swift in Sources */,
+				A9BA06EF2087FA77001117D8 /* ReactorAPIScheduledEvents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

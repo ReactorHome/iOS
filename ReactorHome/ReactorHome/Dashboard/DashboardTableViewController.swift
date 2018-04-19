@@ -241,7 +241,15 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice){
         device = currDevice
-        self.performSegue(withIdentifier: "outletDeviceDetailSegue", sender: self)
+        
+        switch device?.type {
+        case 0:
+            self.performSegue(withIdentifier: "hueLightDeviceDetailSegue", sender: self)
+        case 1:
+            self.performSegue(withIdentifier: "outletDeviceDetailSegue", sender: self)
+        default:
+            print("Need new segue")
+        }
     }
     
     func callAlertDetailSegueFromCell(){
@@ -249,9 +257,14 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "hueLightDeviceDetailSegue", let destinationVC = segue.destination as?  HueLightDeviceDetailViewController{
+            destinationVC.device = self.device
+        }
+        
         if segue.identifier == "outletDeviceDetailSegue", let destinationVC = segue.destination as?  OutletDeviceDetailViewController{
             destinationVC.device = self.device
         }
+        
         if segue.identifier == "showAllAlerts", let destinationVC = segue.destination as? AllAlertsTableViewController {
             destinationVC.data = alertsObject
         }

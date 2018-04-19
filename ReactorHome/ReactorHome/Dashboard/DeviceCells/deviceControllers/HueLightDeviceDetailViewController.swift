@@ -8,19 +8,73 @@
 
 import UIKit
 
-class HueLightDeviceDetailViewController: UIViewController {
+class HueLightDeviceDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    var device: ReactorAPIDevice?
+    
+    let cellTitleArray = ["Status","Connection","Hardware ID","Manufacturer","Model"]
+    var valueArray: [String] = []
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var slider: UISlider!
+    @IBAction func sliderAction(_ sender: Any) {
+        print("DEVICE BRIGHTNESS VALUE CHANGED")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        slider.isContinuous = false
+        slider.maximumValue = 254.00
+        slider.minimumValue = 1.00
+        
+        self.title = device?.name!
+        if let value = device?.brightness{
+            print("DEVICE BRIGHTNESS VALUE")
+            print(value)
+            slider.setValue(Float(value), animated: true)
+        }
+        
+        if let status = device?.on{
+            if status{
+                valueArray.append("On")
+            }else{
+                valueArray.append("Off")
+            }
+        }
+        
+        if let connection = device?.connected{
+            if connection{
+                valueArray.append("Online")
+                slider.isEnabled = true
+            }else{
+                valueArray.append("Offline")
+                slider.isEnabled = false
+            }
+        }
+        
+        valueArray.append(device?.hardware_id! ?? "unknown")
+        valueArray.append(device?.manufacturer! ?? "unknown")
+        valueArray.append(device?.model! ?? "unknown")
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "hueLightInfoCell")
+        cell?.textLabel?.text = cellTitleArray[indexPath.row]
+        cell?.detailTextLabel?.text = valueArray[indexPath.row]
+        return cell!
+    }
+    
+    //hueLightInfoCell
 
     /*
     // MARK: - Navigation

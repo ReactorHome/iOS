@@ -123,11 +123,10 @@ class ReactorMainRequestClient: APIClient {
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let postString = "{\"hardware_id\":\"\(hardware_id)\",\"on\":\"\(on)\"}"
+        let postString = "{\"hardware_id\":\"\(hardware_id)\",\"on\":\"\(on)\",\"type\":1}"
         request.httpBody = postString.data(using: .utf8)
         
         fetch(with: request, completion: completion)
-        
     }
     
     //group changes
@@ -195,6 +194,28 @@ class ReactorMainRequestClient: APIClient {
         
         fetch(with: request, completion: completion)
         
+    }
+    
+    func getScheduledEvents(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIScheduledEvents?, APIError>) -> Void) {
+        
+        
+        var request = ReactorAPIType.request
+        
+        let preferences = UserDefaults.standard
+        
+        guard let token = preferences.string(forKey: "access_token") else {
+            //do some error handleing here
+            return
+        }
+        
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        fetch(with: request, decode: { json -> ReactorAPIScheduledEvents? in
+            guard let reactorAPIScheduledEvents = json as? ReactorAPIScheduledEvents else { return  nil }
+            return reactorAPIScheduledEvents
+        }, completion: completion)
     }
     
     

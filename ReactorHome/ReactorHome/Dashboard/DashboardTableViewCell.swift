@@ -96,6 +96,22 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
             case .devicesCell:
                 if let devices = deviceData?.devices!{
                     switch devices[indexPath.row].type! {
+                    case 0://this means Hue Light
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
+                        cell.stateSwicth.isHidden = false
+                        cell.titleLabel.text = devices[indexPath.row].name
+                        cell.hardware_id = devices[indexPath.row].hardware_id
+                        cell.stateSwicth.setOn(devices[indexPath.row].on!, animated: true)
+                        
+                        //logic for if the device becomes disconnected
+                        if(!devices[indexPath.row].connected!){
+                            cell.stateSwicth.setOn(false, animated: true)
+                            cell.stateSwicth.isEnabled = false
+                            //self.delegate.showDisabledAlert(deviceName: devices[indexPath.row].name!)
+                        }else{
+                            cell.stateSwicth.isEnabled = true
+                        }
+                        return cell
                     case 1://this means outlet
                         let cell = tableView.dequeueReusableCell(withIdentifier: "devicebasiccell") as! DeviceBasicTableViewCell
                         

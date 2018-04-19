@@ -18,4 +18,12 @@ struct ReactorAPIDevice: Decodable {
     let connection_address: String?
     let model: String?
     let on: Bool?
+    let brightness: Int?
+    let supports_color: Bool?
+    let color_mode: String?
+    let hue: Int?
+    let saturation: Int?
+    let xy: [Float]?
+    let color_temperature: Int?
+    let internal_id: Int?
 }

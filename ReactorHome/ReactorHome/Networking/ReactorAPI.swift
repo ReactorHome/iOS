@@ -22,6 +22,7 @@ enum ReactorAPI {
     case getUsersGroups
     case getAlertsForGroup(String) //pass in groupNumber
     case getEventsForGroup(String) //pass in groupNumber
+    case getScheduledEventsforGroup(String)//pass in groupNumber
     case enrollForMobileNotifications
     //Change Device state
     case updateNestThermostat(String, String) //pass in mongoHubId and thermostatId
@@ -53,6 +54,7 @@ extension ReactorAPI: Endpoint {
         case .getUsersGroups: return "/user/api/users/me/groups"
         case .getAlertsForGroup(let groupNumber): return "/user/api/alerts/\(groupNumber)/"
         case .getEventsForGroup(let groupNumber): return "/user/api/events/\(groupNumber)/"
+        case .getScheduledEventsforGroup(let groupNumber): return "/user/api/cloud/schedule/group/\(groupNumber)/"
         case .enrollForMobileNotifications: return "/user/api/notifications/enroll/"
         case .updateNestThermostat(let hubId, let thermostatId): return "/device/api/\(hubId)/thermostat/\(thermostatId)"
         case .updateOutlet(let hubId): return "/device/api/\(hubId)/outlet/"
