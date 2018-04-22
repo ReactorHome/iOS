@@ -20,14 +20,14 @@ class DeviceBasicTableViewCell: UITableViewCell {
     var deviceType: DeviceCellType?
     
     @IBAction func changeStateSwitch(_ sender: Any) {
-        
         if let deviceType = deviceType{
             switch deviceType{
             case .hueLightCell:
                 if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
                     mainRequestClient.updateHueLight(from: .updateHueLight(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
                         switch result{
-                        case .success(_): break
+                        case .success(_):
+                            print("Succesfully sent Hue Light state change")
                         case .failure(let error):
                             print("the error is \(error)")
                         }
@@ -37,7 +37,8 @@ class DeviceBasicTableViewCell: UITableViewCell {
                 if let hubId = preferences.string(forKey: "hub_id"), let hardware_id = hardware_id{
                     mainRequestClient.updateOutlet(from: .updateOutlet(hubId), hardware_id: hardware_id, on: stateSwicth.isOn, completion: { result in
                         switch result{
-                        case .success(_): break
+                        case .success(_):
+                            print("Succesfully sent TP_Link device state change")
                         case .failure(let error):
                             print("the error is \(error)")
                         }

@@ -128,7 +128,6 @@ class ReactorMainRequestClient: APIClient {
         
         fetch(with: request, completion: completion)
     }
-    //NEED TO CHNAGE THIS
     func updateHueLight(from ReactorAPIType: ReactorAPI, hardware_id: String, on: Bool, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
         
         var request = ReactorAPIType.request
@@ -254,6 +253,27 @@ class ReactorMainRequestClient: APIClient {
             guard let reactorAPIScheduledEvents = json as? ReactorAPIScheduledEvents else { return  nil }
             return reactorAPIScheduledEvents
         }, completion: completion)
+    }
+    
+    func newScheduledEvents(from ReactorAPIType: ReactorAPI, deviceType: Int, groupId: Int, deviceId: String, attribute_name: String, attribute_value: String, hour: Int, minute: Int, monday: Bool, tuesday: Bool, wednesday: Bool, thursday: Bool, friday: Bool, saturday: Bool, sunday: Bool,completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let postString = "{\"deviceType\":\"\(deviceType)\",\"groupId\":\"\(groupId)\",\"deviceId\":\"\(deviceId)\",\"attribute_name\":\"\(attribute_name)\",\"attribute_value\":\"\(attribute_value)\",\"hour\":\"\(hour)\",\"minute\":\"\(minute)\",\"monday\":\"\(monday)\",\"tuesday\":\"\(tuesday)\",\"wednesday\":\"\(wednesday)\",\"thursday\":\"\(thursday)\",\"friday\":\"\(friday)\",\"saturday\":\"\(saturday)\",\"sunday\":\(sunday)}"
+        request.httpBody = postString.data(using: .utf8)
+        
+        print(postString)
+        
+        fetch(with: request, completion: completion)
     }
     
     

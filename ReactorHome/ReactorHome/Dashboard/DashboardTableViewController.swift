@@ -37,19 +37,22 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         super.viewDidLoad()
         
         let token = preferences.string(forKey: "push_token")
+        let previousToken: Bool? = preferences.bool(forKey: "previous_token")
         groupNum = preferences.integer(forKey: "set_group_Id")
         
         if token != nil{
             //send token
-            mainRequestClient.enrollForMobileNotifications(from: .enrollForMobileNotifications, token: token!) { result in
-                switch result{
-                case .success:
-                    print("successfully enrolled for mobile notifications")
-                case .failure(let error):
-                    print("the error \(error)")
+            if previousToken == false{
+                mainRequestClient.enrollForMobileNotifications(from: .enrollForMobileNotifications, token: token!) { result in
+                    switch result{
+                    case .success:
+                        print("successfully enrolled for mobile notifications")
+                    case .failure(let error):
+                        print("the error \(error)")
+                    }
                 }
+                preferences.setValue(true, forKey: "previous_token")
             }
-            preferences.setValue(true, forKey: "previous_token")
         }
         
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")

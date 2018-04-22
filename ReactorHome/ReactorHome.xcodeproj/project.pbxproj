@@ -46,6 +46,8 @@
 		A9BF61BD2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */; };
 		A9BF61BF2075CDC3000C7C58 /* NestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */; };
 		A9C8512820890076001E6C67 /* DeviceScrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8512720890076001E6C67 /* DeviceScrollTableViewCell.swift */; };
+		A9C8512C208BEC3D001E6C67 /* AddScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8512B208BEC3D001E6C67 /* AddScheduleTableViewController.swift */; };
+		A9C8512E208BED0E001E6C67 /* addScheduleEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8512D208BED0E001E6C67 /* addScheduleEventTableViewCell.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */; };
 		A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */; };
@@ -118,6 +120,8 @@
 		A9BF61BC2075CDB0000C7C58 /* HueLightDeviceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueLightDeviceDetailViewController.swift; sourceTree = "<group>"; };
 		A9BF61BE2075CDC3000C7C58 /* NestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestDetailViewController.swift; sourceTree = "<group>"; };
 		A9C8512720890076001E6C67 /* DeviceScrollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScrollTableViewCell.swift; sourceTree = "<group>"; };
+		A9C8512B208BEC3D001E6C67 /* AddScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleTableViewController.swift; sourceTree = "<group>"; };
+		A9C8512D208BED0E001E6C67 /* addScheduleEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addScheduleEventTableViewCell.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBasicDetailTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				A9BA06EA2087AB0B001117D8 /* ScheduleTableViewController.swift */,
+				A9C8512B208BEC3D001E6C67 /* AddScheduleTableViewController.swift */,
+				A9C8512D208BED0E001E6C67 /* addScheduleEventTableViewCell.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -520,11 +526,13 @@
 				A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */,
 				A901DDC3205DA4AF0070E831 /* ReactorAPIAlerts.swift in Sources */,
 				A9BEBACB202E32CA00A09703 /* APISuccess.swift in Sources */,
+				A9C8512E208BED0E001E6C67 /* addScheduleEventTableViewCell.swift in Sources */,
 				A9BA06ED2087F918001117D8 /* ReactorAPIScheduleEvent.swift in Sources */,
 				A91EA6E1207AC507006EBD18 /* ReactorAPIEvent.swift in Sources */,
 				A9575C25203C94D20087C6E6 /* DashboardTableViewCell.swift in Sources */,
 				A9BF61BB2075CA3C000C7C58 /* OutletDeviceDetailViewController.swift in Sources */,
 				A96A7363204098660098CC6C /* AlertCellType.swift in Sources */,
+				A9C8512C208BEC3D001E6C67 /* AddScheduleTableViewController.swift in Sources */,
 				A96A7367204098930098CC6C /* GroupCellType.swift in Sources */,
 				A98787642028DE98006BDA51 /* LoginViewController.swift in Sources */,
 				A9BEBAC9202E308900A09703 /* APIResponse.swift in Sources */,

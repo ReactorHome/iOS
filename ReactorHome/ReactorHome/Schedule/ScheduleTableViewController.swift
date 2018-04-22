@@ -35,6 +35,25 @@ class ScheduleTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let groupId = preferences.string(forKey: "group_Id"){
+            client.getScheduledEvents(from: .getScheduledEventsforGroup(groupId)){ result in
+                switch result{
+                case .success(let reactorAPIScheduledEvents):
+                    guard let getScheduledEventsResults = reactorAPIScheduledEvents else {
+                        print("Unable to get Events")
+                        return
+                    }
+                    self.eventsResult = getScheduledEventsResults.events
+                    self.tableView.reloadData()
+                    
+                case .failure(let error):
+                    print("the error \(error)")
+                }
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,6 +82,7 @@ class ScheduleTableViewController: UITableViewController {
         if let events = eventsResult{
             // Configure the cell...
             let name = events[indexPath.row].deviceName
+            //let name = events[indexPath.row].deviceId
             let hour = events[indexPath.row].hour
             let min = events[indexPath.row].minute
             var weekString = ""
@@ -89,7 +109,9 @@ class ScheduleTableViewController: UITableViewController {
                 weekString.append("Su")
             }
             
-            cell.textLabel?.text = "\(name!) @ \(hour!):\(min!) \(weekString)"
+            if let name = name, let hour = hour, let min = min{
+                cell.textLabel?.text = "\(name) @ \(hour):\(min) \(weekString)"
+            }
         }else{
             // Configure the cell...
             cell.textLabel?.text = "Title @ 00:00 MWF"

@@ -81,7 +81,7 @@
         <scene sceneID="q3A-0G-JBk">
             <objects>
                 <tableViewController id="cqx-Ni-OgK" customClass="ScheduleTableViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yQJ-zr-57K">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yQJ-zr-57K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +110,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="gir-Rb-Oeb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n5n-2w-UmP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n5n-2w-UmP">
+                            <connections>
+                                <segue destination="8rt-IW-mBA" kind="show" id="Jx4-vV-gc8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzi-tW-8Wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1180,7 +1184,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxV-GY-rC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737" y="-62"/>
+            <point key="canvasLocation" x="3574" y="-65"/>
+        </scene>
+        <!--Add Scheduled Event-->
+        <scene sceneID="oYI-mo-g4g">
+            <objects>
+                <tableViewController id="8rt-IW-mBA" customClass="AddScheduleTableViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qjs-7V-jxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="scheduledEventCell" id="22K-6B-J4G" customClass="addScheduleEventTableViewCell" customModule="ReactorHome" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="22K-6B-J4G" id="kt3-fb-R8r">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="No Value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NA2-Jc-Chq">
+                                            <rect key="frame" x="297" y="12.5" width="62" height="17"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="NA2-Jc-Chq" secondAttribute="trailing" constant="16" id="9V1-Pg-H28"/>
+                                        <constraint firstItem="NA2-Jc-Chq" firstAttribute="centerY" secondItem="kt3-fb-R8r" secondAttribute="centerY" id="JHM-Kc-D3k"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="inputField" destination="NA2-Jc-Chq" id="P0O-lM-ixz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8rt-IW-mBA" id="Mob-Qd-rfO"/>
+                            <outlet property="delegate" destination="8rt-IW-mBA" id="etG-Zh-pG5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Scheduled Event" id="LTJ-Oe-g9x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cKR-mk-72t">
+                            <connections>
+                                <action selector="sendScheduleAction:" destination="8rt-IW-mBA" id="XHn-ub-5fP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpV-b8-v1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2737" y="238"/>
         </scene>
         <!--Add Device-->
         <scene sceneID="OjO-tV-tJh">
