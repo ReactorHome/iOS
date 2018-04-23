@@ -130,14 +130,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TPlinkOutlet" translatesAutoresizingMaskIntoConstraints="NO" id="cy6-pS-vLY">
-                                <rect key="frame" x="87" y="79" width="200" height="135"/>
+                                <rect key="frame" x="87" y="35" width="200" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="bFm-hl-ljx"/>
                                     <constraint firstAttribute="width" constant="200" id="tsR-4F-Eft"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BuM-y4-vZl">
-                                <rect key="frame" x="0.0" y="244" width="375" height="374"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="outletInfoCell" textLabel="7NX-jc-XKO" detailTextLabel="86m-Os-SQ0" style="IBUITableViewCellStyleValue1" id="SU2-dt-bkf">
@@ -1165,6 +1165,7 @@
                         <segue destination="tzh-nG-qDH" kind="show" identifier="showAllAlerts" id="csF-Bw-xMm"/>
                         <segue destination="Wgs-u7-7y2" kind="show" identifier="alertDetailSegue" id="1Pf-oc-WvX"/>
                         <segue destination="w5S-Pa-2Vv" kind="show" identifier="showManageGroups" id="cgD-5l-j27"/>
+                        <segue destination="17d-jK-N5s" kind="show" identifier="returnToLoginSegue" id="mgQ-hw-Txo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQb-sE-V5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1313,7 +1314,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the &quot;Push-Link&quot; button on the bridge, then press &quot;Done&quot;." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-4h-GJL">
-                                <rect key="frame" x="16" y="484" width="344" height="50"/>
+                                <rect key="frame" x="16" y="440" width="344" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="TSi-Lf-888"/>
                                 </constraints>
@@ -1322,7 +1323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Push-LinkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mxm-hq-Qd7">
-                                <rect key="frame" x="37" y="164" width="300" height="300"/>
+                                <rect key="frame" x="37" y="120" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mxm-hq-Qd7" secondAttribute="height" multiplier="1:1" id="lxy-nu-eci"/>
                                     <constraint firstAttribute="width" constant="300" id="qhG-aR-vaz"/>
@@ -1360,7 +1361,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-IF-IOA">
-                                <rect key="frame" x="67" y="164" width="240" height="240"/>
+                                <rect key="frame" x="67" y="120" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7qZ-IF-IOA" secondAttribute="height" multiplier="1:1" id="3zS-It-brv"/>
                                     <constraint firstAttribute="width" constant="240" id="6KB-Vk-uEj"/>
@@ -1402,19 +1403,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nest pincode" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGu-v1-zv2">
-                                <rect key="frame" x="134" y="326" width="107" height="30"/>
+                                <rect key="frame" x="134" y="328.5" width="107" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="81S-Bl-tFd">
-                                <rect key="frame" x="109.5" y="85" width="155" height="155"/>
+                                <rect key="frame" x="109.5" y="87.5" width="155" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="81S-Bl-tFd" secondAttribute="height" multiplier="1:1" id="nET-J2-Ynb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the pincode that you copied from the previous screen, then press &quot;Done&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKV-SW-g8n">
-                                <rect key="frame" x="32" y="265" width="311" height="41"/>
+                                <rect key="frame" x="32" y="267.5" width="311" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1508,45 +1509,54 @@
             </objects>
             <point key="canvasLocation" x="2737" y="-1481"/>
         </scene>
-        <!--View Controller-->
+        <!--Alert-->
         <scene sceneID="9c3-Sj-rMm">
             <objects>
-                <viewController id="Wgs-u7-7y2" sceneMemberID="viewController">
+                <viewController title="Alert" id="Wgs-u7-7y2" customClass="AlertDetailViewController" customModule="ReactorHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yam-hC-h6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-0d-5zg">
-                                <rect key="frame" x="62.5" y="164" width="250" height="250"/>
+                                <rect key="frame" x="63" y="120" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="W1n-0d-5zg" secondAttribute="height" multiplier="1:1" id="6qG-IC-bQe"/>
                                     <constraint firstAttribute="width" constant="250" id="QU3-Ho-BOc"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmN-Az-sbc">
-                                <rect key="frame" x="57" y="463" width="107" height="30"/>
+                                <rect key="frame" x="57" y="419" width="107" height="30"/>
                                 <state key="normal" title="Mark as Unsafe">
-                                    <color key="titleColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.9882352941176471" green="0.027747741706527131" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="markUnsafeButton:" destination="Wgs-u7-7y2" eventType="touchUpInside" id="cCO-FU-kAv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXH-LA-VMv">
-                                <rect key="frame" x="247" y="463" width="89" height="30"/>
+                                <rect key="frame" x="247" y="419" width="89" height="30"/>
                                 <state key="normal" title="Mark as Safe">
-                                    <color key="titleColor" red="0.2274509804" green="0.59215686270000001" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.77664344765329951" blue="0.0074975459203884863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="markSafeButton:" destination="Wgs-u7-7y2" eventType="touchUpInside" id="boM-VP-Tp5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W1n-0d-5zg" firstAttribute="top" secondItem="WyK-Nr-LYr" secondAttribute="top" constant="100" id="Mjn-Pn-LBL"/>
                             <constraint firstItem="XmN-Az-sbc" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="49" id="TC1-Fe-7fw"/>
-                            <constraint firstItem="XmN-Az-sbc" firstAttribute="leading" secondItem="WyK-Nr-LYr" secondAttribute="leading" constant="57" id="V2a-kG-8aC"/>
                             <constraint firstItem="W1n-0d-5zg" firstAttribute="centerX" secondItem="WyK-Nr-LYr" secondAttribute="centerX" id="YCM-TU-zh3"/>
                             <constraint firstItem="sXH-LA-VMv" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="49" id="bnx-sd-mic"/>
-                            <constraint firstItem="WyK-Nr-LYr" firstAttribute="trailing" secondItem="sXH-LA-VMv" secondAttribute="trailing" constant="39" id="fMD-iv-e15"/>
+                            <constraint firstItem="XmN-Az-sbc" firstAttribute="leading" secondItem="WyK-Nr-LYr" secondAttribute="leading" constant="57" id="cr5-7k-m9o"/>
+                            <constraint firstItem="sXH-LA-VMv" firstAttribute="leading" secondItem="XmN-Az-sbc" secondAttribute="trailing" constant="83" id="sjS-S6-Xsh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WyK-Nr-LYr"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="W1n-0d-5zg" id="b3p-CZ-dsm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlK-IX-PM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1590,7 +1600,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kQQ-Wo-qWm"/>
-        <segue reference="gnd-eG-vvK"/>
+        <segue reference="mgQ-hw-Txo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

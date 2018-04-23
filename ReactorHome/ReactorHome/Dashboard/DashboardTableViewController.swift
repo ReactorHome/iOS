@@ -25,6 +25,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
     
     var groupNum: Int?
     var device: ReactorAPIDevice?
+    var selectedAlertIndex: Int?
     
     //function for refreshing
     @objc func refreshTable() {
@@ -110,7 +111,6 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
             dispatchGroup.enter()
             self.getAlerts(groupId: (groupObject.groups![groupNum].id)!){ alertsResult in
                 self.alertsObject = alertsResult
-                //print(alertsResult)
                 dispatchGroup.leave()
             }
             
@@ -121,9 +121,11 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 self.refreshControl?.endRefreshing()
             }
         }else{
-            print("Unsuccessful refresh no group object exists")
-            print("token is vaild == \(oauthValidationCheck())")
-            self.refreshControl?.endRefreshing()
+            print("Unsuccessful refresh no group object exists: refreshing")
+            if (oauthValidationCheck()){
+                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
         }
         
         
@@ -228,6 +230,7 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 }
                 completion(getGroupResults)
             case .failure(let error):
+                print("Cant get groups")
                 print("the error \(error)")
             }
         }
@@ -258,7 +261,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
                 }
                 completion(getHubResults)
             case .failure(let error):
-                print("the error \(error)")
+                print("the HUB error \(error)")
+                self.refreshControl?.endRefreshing()
             }
         }
     }
@@ -290,7 +294,8 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         }
     }
     
-    func callAlertDetailSegueFromCell(){
+    func callAlertDetailSegueFromCell(selectedAlertIndex: Int){
+        self.selectedAlertIndex = selectedAlertIndex
         self.performSegue(withIdentifier: "alertDetailSegue", sender: self)
     }
     
@@ -306,6 +311,19 @@ class DashboardTableViewController: UITableViewController, DashboardCellSeguePro
         if segue.identifier == "showAllAlerts", let destinationVC = segue.destination as? AllAlertsTableViewController {
             destinationVC.data = alertsObject
         }
+        
+        if segue.identifier == "alertDetailSegue", let destinationVC = segue.destination as? AlertDetailViewController {
+            
+            
+            if let alertsObject = alertsObject, let alerts = alertsObject.alerts, let indexNum = selectedAlertIndex{
+                let revAlerts: [ReactorAPIAlert]  = alerts.reversed()
+                destinationVC.fileName = revAlerts[indexNum].filename
+            }
+            
+            
+            
+        }
+        
     }
 
 }

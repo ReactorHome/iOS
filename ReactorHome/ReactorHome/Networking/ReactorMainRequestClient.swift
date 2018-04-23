@@ -88,6 +88,30 @@ class ReactorMainRequestClient: APIClient {
         }, completion: completion)
     }
     
+    func getImageForAlert(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIImage?, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        
+        let preferences = UserDefaults.standard
+        
+        guard let token = preferences.string(forKey: "access_token") else {
+            //do some error handleing here
+            return
+        }
+        
+        request.httpMethod = "GET"
+        request.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        //print(request)
+        fetch(with: request, decode: {data -> ReactorAPIImage? in
+            guard let reactorAPIImage = data as? ReactorAPIImage else { return  nil }
+            //print(reactorAPIAlerts.alerts?[0].data)
+            return reactorAPIImage
+        }, completion: completion)
+    }
+    
+    
     func getEvents(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIEventsResult?, APIError>) -> Void) {
         
         var request = ReactorAPIType.request

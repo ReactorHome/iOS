@@ -12,5 +12,5 @@ protocol DashboardCellSegueProtocol {
     func callSegueFromCell(cellType: DashboardCellType)
     //func showDisabledAlert(deviceName: String)
     func callOutletDeviceSequeFromCell(currDevice: ReactorAPIDevice)
-    func callAlertDetailSegueFromCell()
+    func callAlertDetailSegueFromCell(selectedAlertIndex: Int)
 }

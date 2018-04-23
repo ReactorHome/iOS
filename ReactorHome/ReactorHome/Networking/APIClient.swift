@@ -66,6 +66,7 @@ extension APIClient {
             }else{
                 print(httpResponse.statusCode)
                 print("refresh here 2")
+                completion(APIError.responseUnsuccessful)
                 let client = ReactorOauthClient()
                 let preferences = UserDefaults.standard
                 client.getOauthRefresh(from: .oauth){ result in
@@ -75,6 +76,7 @@ extension APIClient {
                             print("There was an error in oauthValidationCheck request portion")
                             return
                         }
+                        
                         //setting access_token
                         preferences.set(oauthResults.access_token, forKey: "access_token")
                         
@@ -94,11 +96,11 @@ extension APIClient {
                         return
                     }
                 }
-                completion(APIError.responseUnsuccessful)
             }
         }
         return task
     }
+    
     
     //Fetch for JSON
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
@@ -138,5 +140,4 @@ extension APIClient {
         }
         task.resume()
     }
-    
 }

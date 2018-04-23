@@ -50,6 +50,8 @@
 		A9C8512E208BED0E001E6C67 /* addScheduleEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8512D208BED0E001E6C67 /* addScheduleEventTableViewCell.swift */; };
 		A9C85132208D9F94001E6C67 /* NestWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C85131208D9F94001E6C67 /* NestWebViewController.swift */; };
 		A9C85134208DA316001E6C67 /* NestRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C85133208DA316001E6C67 /* NestRegistrationViewController.swift */; };
+		A9C85136208E6AA8001E6C67 /* ReactorAPIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C85135208E6AA8001E6C67 /* ReactorAPIImage.swift */; };
+		A9C85138208E77DC001E6C67 /* AlertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C85137208E77DC001E6C67 /* AlertDetailViewController.swift */; };
 		A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */; };
 		A9DC35DF207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */; };
 		A9DC35E3207D5866003FCF3D /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */; };
@@ -126,6 +128,8 @@
 		A9C8512D208BED0E001E6C67 /* addScheduleEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addScheduleEventTableViewCell.swift; sourceTree = "<group>"; };
 		A9C85131208D9F94001E6C67 /* NestWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestWebViewController.swift; sourceTree = "<group>"; };
 		A9C85133208DA316001E6C67 /* NestRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestRegistrationViewController.swift; sourceTree = "<group>"; };
+		A9C85135208E6AA8001E6C67 /* ReactorAPIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAPIImage.swift; sourceTree = "<group>"; };
+		A9C85137208E77DC001E6C67 /* AlertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailViewController.swift; sourceTree = "<group>"; };
 		A9CCD662201BAA32000B6487 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35DE207D19C7003FCF3D /* SettingsBasicDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBasicDetailTableViewController.swift; sourceTree = "<group>"; };
 		A9DC35E2207D5866003FCF3D /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				A96A7362204098660098CC6C /* AlertCellType.swift */,
 				A9DC35E62080031B003FCF3D /* AllAlertsTableViewController.swift */,
+				A9C85137208E77DC001E6C67 /* AlertDetailViewController.swift */,
 			);
 			name = AlertCells;
 			path = "New Group";
@@ -419,6 +424,7 @@
 				A91EA6DA207ABBA0006EBD18 /* ReactorAPIAlert.swift */,
 				A9BA06EE2087FA77001117D8 /* ReactorAPIScheduledEvents.swift */,
 				A9BA06EC2087F918001117D8 /* ReactorAPIScheduleEvent.swift */,
+				A9C85135208E6AA8001E6C67 /* ReactorAPIImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 				A9DC35E5207DC363003FCF3D /* SettingsUserStatusViewController.swift in Sources */,
 				A950FFE22061D50000B7C2E2 /* ReactorAPIEventsResult.swift in Sources */,
 				A9CCD663201BAA32000B6487 /* EventsTableViewController.swift in Sources */,
+				A9C85138208E77DC001E6C67 /* AlertDetailViewController.swift in Sources */,
 				A9E639F71F96A5D900BDB094 /* DashboardTableViewController.swift in Sources */,
 				A91EA6DB207ABBA0006EBD18 /* ReactorAPIAlert.swift in Sources */,
 				A96A735B204093A10098CC6C /* DeviceBasicTableViewCell.swift in Sources */,
@@ -587,6 +594,7 @@
 				A901DDC7205DA9410070E831 /* ReactorAPIGroupResult.swift in Sources */,
 				A9BF61B220757F1D000C7C58 /* ReactorAPIDevice.swift in Sources */,
 				D63255BC20293202000E50CC /* APIClient.swift in Sources */,
+				A9C85136208E6AA8001E6C67 /* ReactorAPIImage.swift in Sources */,
 				D63255BE20293202000E50CC /* APIError.swift in Sources */,
 				A9BA06EF2087FA77001117D8 /* ReactorAPIScheduledEvents.swift in Sources */,
 			);

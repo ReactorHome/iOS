@@ -44,7 +44,7 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
         
         if let alerts = alertsData?.alerts!{
             self.innerTableView.deselectRow(at: indexPath, animated: true)
-            self.delegate.callAlertDetailSegueFromCell()
+            self.delegate.callAlertDetailSegueFromCell(selectedAlertIndex: indexPath.row)
         }
         
         self.innerTableView.deselectRow(at: indexPath, animated: true)
@@ -146,12 +146,13 @@ class DashboardTableViewCell: UITableViewCell, UITableViewDataSource, UITableVie
                         }
                         
                         //logic for if the device becomes disconnected
-                        if(!devices[indexPath.row].connected!){
-                            cell.tempInput.isEnabled = false
-                            cell.tempInput.text = "Uknown"
-                        }else{
-                            cell.tempInput.isEnabled = true
-                        }
+//                        if(!devices[indexPath.row].connected!){
+//                            cell.tempInput.isEnabled = false
+//                            cell.tempInput.text = "Uknown"
+//                        }else{
+//
+//                        }
+                        cell.tempInput.isEnabled = true
                         
                         return cell
                     //ADD MORE DEVICE TYPES HERE

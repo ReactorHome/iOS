@@ -13,4 +13,5 @@ struct ReactorAPIAlert: Decodable {
     let types: Int?
     let data: String?
     let dataJson: String?
+    let filename: String?
 }

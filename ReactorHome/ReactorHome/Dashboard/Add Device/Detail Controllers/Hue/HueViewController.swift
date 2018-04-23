@@ -22,8 +22,8 @@ class HueViewController: UIViewController {
     @IBAction func addHueButton(_ sender: Any) {
         let hubId = preferences.string(forKey: "hub_id")
         
-        if let hubId = hubId{
-            mainRequestClient.registerHueBridge(from: .registerHueBridge(hubId), host: host!, completion: { result in
+        if let hubId = hubId, let host = host{
+            mainRequestClient.registerHueBridge(from: .registerHueBridge(hubId), host: host, completion: { result in
                 switch result{
                 case .success:
                     //print("Registered Bridge")
