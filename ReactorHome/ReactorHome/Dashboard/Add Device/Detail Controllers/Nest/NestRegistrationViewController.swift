@@ -9,12 +9,25 @@
 import UIKit
 
 class NestRegistrationViewController: UIViewController {
-
+    
+    let mainRequestClient = ReactorMainRequestClient()
+    let preferences = UserDefaults.standard
+    
     @IBOutlet var inputField: UITextField!
     @IBAction func doneButtonAction(_ sender: Any) {
-        if inputField.text != nil{
-            //request goes here
-            self.navigationController?.popToRootViewController(animated: true)
+        //request goes here
+        let hubId = preferences.string(forKey: "hub_id")
+        
+        if let hubId = hubId, let nestPincode = inputField.text{
+            mainRequestClient.registerNest(from: .registerWithNest(hubId), nestPincode: nestPincode, completion: { result in
+                switch result{
+                case .success:
+                    self.showSuccessAlert()
+                case .failure(let error):
+                    print("the error \(error)")
+                    self.showErrorAlert()
+                }
+            })
         }
     }
     override func viewDidLoad() {

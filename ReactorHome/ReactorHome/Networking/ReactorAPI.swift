@@ -50,7 +50,7 @@ extension ReactorAPI: Endpoint {
         case .oauth: return "/user/oauth/token"
         case .register: return "/user/api/users/register"
         case .registerHub: return "/"
-        case .registerWithNest(let hubId): return "/device/api/\(hubId)/thermostat/nest/register"
+        case .registerWithNest(let hubId): return "/device/api/\(hubId)/thermostat/register/nest/"
         case .registerHueBridge(let hubId): return "/device/api/\(hubId)/bridge/"
         case .getHubInfo(let hubId): return "/device/api/\(hubId)/hub"
         case .getGroupInfo(let groupNumber): return "/user/api/groups/\(groupNumber)"

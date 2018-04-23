@@ -222,6 +222,11 @@ class ReactorMainRequestClient: APIClient {
         let postString = "\(nestPincode)"
         request.httpBody = postString.data(using: .utf8)
         
+        print(request)
+        print(request.allHTTPHeaderFields)
+        print(request.httpBody)
+        
+        
         fetch(with: request, completion: completion)
         
     }
