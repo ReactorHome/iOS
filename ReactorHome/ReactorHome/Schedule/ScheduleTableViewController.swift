@@ -129,7 +129,18 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let events = eventsResult, let idString = events[indexPath.row].id?.description{
+                eventsResult!.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                client.deleteScheduledEvents(from: .deleteScheduledEvent(idString)) { result in
+                    switch result{
+                    case .success:
+                        print("successfully deleted row")
+                    case .failure(let error):
+                        print("the error \(error)")
+                    }
+                }
+            }
             //will send delete request here
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

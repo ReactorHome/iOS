@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ReactorHome.xcodeproj">
+      location = "self:/Users/WillMock1/Desktop/Capstone/iOS/ReactorHome/Reactor.xcodeproj">
    </FileRef>
 </Workspace>

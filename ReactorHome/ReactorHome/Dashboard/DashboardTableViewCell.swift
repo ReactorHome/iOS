@@ -4,7 +4,6 @@
 //
 //  Created by Will Mock on 2/20/18.
 //  Copyright © 2018 Mock. All rights reserved.
-//
 
 import UIKit
 

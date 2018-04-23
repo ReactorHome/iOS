@@ -139,6 +139,8 @@ class AddScheduleTableViewController: UITableViewController, UIPickerViewDelegat
             case "PM":
                 if hourValue != "12"{
                     hourInteger = Int(hourValue)! + 12
+                }else{
+                    hourInteger = 12
                 }
             default:
                 break
