@@ -206,6 +206,26 @@ class ReactorMainRequestClient: APIClient {
         fetch(with: request, completion: completion)
     }
     
+    func registerNest(from ReactorAPIType: ReactorAPI, nestPincode: String, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "POST"
+        request.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let postString = "\(nestPincode)"
+        request.httpBody = postString.data(using: .utf8)
+        
+        fetch(with: request, completion: completion)
+        
+    }
+    
     func registerHueBridge(from ReactorAPIType: ReactorAPI, host: String, completion: @escaping (Result<APISuccess, APIError>) -> Void) {
         
         var request = ReactorAPIType.request
@@ -222,8 +242,8 @@ class ReactorMainRequestClient: APIClient {
         let postString = "\(host)"
         request.httpBody = postString.data(using: .utf8)
         
-//        var backToString = String(data:  request.httpBody!, encoding: String.Encoding.utf8) as String?
-//        print(backToString)
+        //        var backToString = String(data:  request.httpBody!, encoding: String.Encoding.utf8) as String?
+        //        print(backToString)
         
         print(request)
         print(request.allHTTPHeaderFields)

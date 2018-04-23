@@ -69,7 +69,7 @@ class AddDeviceCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch deviceArray[indexPath.row] {
         case "Nest Thermostat":
-            print("Nest")
+            performSegue(withIdentifier: "addNestSegue", sender: self)
         case "Hue Bridge":
             performSegue(withIdentifier: "addHueSegue", sender: self)
         default:
