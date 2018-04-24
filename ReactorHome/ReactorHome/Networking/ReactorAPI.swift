@@ -22,7 +22,7 @@ enum ReactorAPI {
     case getUsersGroups
     case getAlertsForGroup(String) //pass in groupNumber
     case getImageforAlert(String)//pass in filename
-    case markImageAsSafeUnsafe
+    case markImageAsSafeUnsafe(String)
     case getEventsForGroup(String) //pass in groupNumber
     case getScheduledEventsforGroup(String)//pass in groupNumber
     case newScheduledEvent
@@ -59,7 +59,7 @@ extension ReactorAPI: Endpoint {
         case .getUsersGroups: return "/user/api/users/me/groups"
         case .getAlertsForGroup(let groupNumber): return "/user/api/alerts/\(groupNumber)/"
         case .getImageforAlert(let fileName): return "/user/api/cloud/face/image/\(fileName)"
-        case .markImageAsSafeUnsafe: return "/user/api/cloud/face/save/"
+        case .markImageAsSafeUnsafe(let groupNumber): return "/user/api/cloud/face/save/\(groupNumber)/"
         case .getEventsForGroup(let groupNumber): return "/user/api/events/\(groupNumber)/"
         case .getScheduledEventsforGroup(let groupNumber): return "/user/api/cloud/schedule/group/\(groupNumber)/"
         case .newScheduledEvent: return "/user/api/cloud/schedule/new/"

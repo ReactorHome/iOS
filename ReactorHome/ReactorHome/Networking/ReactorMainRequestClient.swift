@@ -111,6 +111,32 @@ class ReactorMainRequestClient: APIClient {
         }, completion: completion)
     }
     
+    func markAlertSafeUnsafe(from ReactorAPIType: ReactorAPI, name: String?, faceData: String, safe: Bool,completion: @escaping (Result<APISuccess, APIError>) -> Void) {
+        
+        var request = ReactorAPIType.request
+        let preferences = UserDefaults.standard
+        guard let token = preferences.string(forKey: "access_token") else{
+            //do some error handling here
+            print("failed to get access_token from user defaults")
+            return
+        }
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if let name = name{
+            let postString = "{\"name\":\"\(name)\",\"faceData\":\"\(faceData)\",\"safe\":\(safe)}"
+            print(request)
+            request.httpBody = postString.data(using: .utf8)
+            fetch(with: request, completion: completion)
+        }else{
+            let postString = "{\"name\":\"\",\"faceData\":\"\(faceData)\",\"safe\":\(safe)}"
+            print(request)
+            request.httpBody = postString.data(using: .utf8)
+            fetch(with: request, completion: completion)
+        }
+    }
+    
     
     func getEvents(from ReactorAPIType: ReactorAPI, completion: @escaping (Result<ReactorAPIEventsResult?, APIError>) -> Void) {
         

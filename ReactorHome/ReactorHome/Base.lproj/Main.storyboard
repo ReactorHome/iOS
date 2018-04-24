@@ -1525,7 +1525,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmN-Az-sbc">
-                                <rect key="frame" x="57" y="419" width="107" height="30"/>
+                                <rect key="frame" x="57" y="470" width="107" height="30"/>
                                 <state key="normal" title="Mark as Unsafe">
                                     <color key="titleColor" red="0.9882352941176471" green="0.027747741706527131" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1534,7 +1534,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXH-LA-VMv">
-                                <rect key="frame" x="247" y="419" width="89" height="30"/>
+                                <rect key="frame" x="247" y="470" width="89" height="30"/>
                                 <state key="normal" title="Mark as Safe">
                                     <color key="titleColor" red="0.0" green="0.77664344765329951" blue="0.0074975459203884863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1542,20 +1542,30 @@
                                     <action selector="markSafeButton:" destination="Wgs-u7-7y2" eventType="touchUpInside" id="boM-VP-Tp5"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDu-Nk-uBs">
+                                <rect key="frame" x="139" y="395" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="W1n-0d-5zg" firstAttribute="top" secondItem="WyK-Nr-LYr" secondAttribute="top" constant="100" id="Mjn-Pn-LBL"/>
-                            <constraint firstItem="XmN-Az-sbc" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="49" id="TC1-Fe-7fw"/>
+                            <constraint firstAttribute="trailing" secondItem="sXH-LA-VMv" secondAttribute="trailing" constant="39" id="OWb-pO-FYh"/>
+                            <constraint firstItem="XmN-Az-sbc" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="100" id="TC1-Fe-7fw"/>
                             <constraint firstItem="W1n-0d-5zg" firstAttribute="centerX" secondItem="WyK-Nr-LYr" secondAttribute="centerX" id="YCM-TU-zh3"/>
-                            <constraint firstItem="sXH-LA-VMv" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="49" id="bnx-sd-mic"/>
+                            <constraint firstItem="sXH-LA-VMv" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="100" id="bnx-sd-mic"/>
                             <constraint firstItem="XmN-Az-sbc" firstAttribute="leading" secondItem="WyK-Nr-LYr" secondAttribute="leading" constant="57" id="cr5-7k-m9o"/>
-                            <constraint firstItem="sXH-LA-VMv" firstAttribute="leading" secondItem="XmN-Az-sbc" secondAttribute="trailing" constant="83" id="sjS-S6-Xsh"/>
+                            <constraint firstItem="fDu-Nk-uBs" firstAttribute="top" secondItem="W1n-0d-5zg" secondAttribute="bottom" constant="25" id="gpB-Ci-bJq"/>
+                            <constraint firstItem="fDu-Nk-uBs" firstAttribute="centerX" secondItem="WyK-Nr-LYr" secondAttribute="centerX" id="pnI-Kg-6kl"/>
+                            <constraint firstItem="sXH-LA-VMv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XmN-Az-sbc" secondAttribute="trailing" constant="8" symbolic="YES" id="sjS-S6-Xsh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WyK-Nr-LYr"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="W1n-0d-5zg" id="b3p-CZ-dsm"/>
+                        <outlet property="inputField" destination="fDu-Nk-uBs" id="khq-Va-z5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlK-IX-PM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
