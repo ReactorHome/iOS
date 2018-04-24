@@ -50,12 +50,10 @@ class AlertDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let fileName = fileName, let url = URL(string: "https://api.myreactorhome.com/user/api/cloud/face/image/\(fileName)"){
             imageView.contentMode = .scaleAspectFit
             downloadImage(url: url)
         }
-        
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
